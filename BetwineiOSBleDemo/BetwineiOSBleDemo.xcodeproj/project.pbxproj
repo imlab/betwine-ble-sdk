@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E9D6D5219AB308200AE5A46 /* libBetwineBleSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9D6D5119AB308200AE5A46 /* libBetwineBleSDK.a */; };
+		7E9D6D5719AB38AD00AE5A46 /* BTWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D6D5619AB38AD00AE5A46 /* BTWMainViewController.m */; };
+		7E9D6DDE19AB39F600AE5A46 /* avatar in Resources */ = {isa = PBXBuildFile; fileRef = 7E9D6DDD19AB39F600AE5A46 /* avatar */; };
+		7E9D6DE119AB3A2200AE5A46 /* BTWAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D6DE019AB3A2200AE5A46 /* BTWAvatarView.m */; };
+		7EBA8CB119A499D7003A2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA8CB019A499D7003A2740 /* Foundation.framework */; };
+		7EBA8CB319A499D7003A2740 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA8CB219A499D7003A2740 /* CoreGraphics.framework */; };
+		7EBA8CB519A499D7003A2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA8CB419A499D7003A2740 /* UIKit.framework */; };
+		7EBA8CBB19A499D7003A2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EBA8CB919A499D7003A2740 /* InfoPlist.strings */; };
+		7EBA8CBD19A499D7003A2740 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA8CBC19A499D7003A2740 /* main.m */; };
+		7EBA8CC119A499D7003A2740 /* BTWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA8CC019A499D7003A2740 /* BTWAppDelegate.m */; };
+		7EBA8CC419A499D7003A2740 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EBA8CC219A499D7003A2740 /* Main_iPhone.storyboard */; };
+		7EBA8CC719A499D7003A2740 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EBA8CC519A499D7003A2740 /* Main_iPad.storyboard */; };
+		7EBA8CCA19A499D7003A2740 /* BTWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA8CC919A499D7003A2740 /* BTWViewController.m */; };
+		7EBA8CCC19A499D7003A2740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EBA8CCB19A499D7003A2740 /* Images.xcassets */; };
+		7EBA8CD319A499D7003A2740 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA8CD219A499D7003A2740 /* XCTest.framework */; };
+		7EBA8CD419A499D7003A2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA8CB019A499D7003A2740 /* Foundation.framework */; };
+		7EBA8CD519A499D7003A2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA8CB419A499D7003A2740 /* UIKit.framework */; };
+		7EBA8CDD19A499D7003A2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EBA8CDB19A499D7003A2740 /* InfoPlist.strings */; };
+		7EBA8CDF19A499D7003A2740 /* BetwineiOSBleDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA8CDE19A499D7003A2740 /* BetwineiOSBleDemoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7EBA8CD619A499D7003A2740 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EBA8CA519A499D7003A2740 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EBA8CAC19A499D7003A2740;
+			remoteInfo = BetwineiOSBleDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E9D6D3019AB2DE000AE5A46 /* BetwineBleSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BetwineBleSDK.xcodeproj; path = ../BetwineBleSDK/BetwineBleSDK.xcodeproj; sourceTree = "<group>"; };
+		7E9D6D5119AB308200AE5A46 /* libBetwineBleSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBetwineBleSDK.a; path = "../../../../../../Users/imlab_dev/Library/Developer/Xcode/DerivedData/betwine-ble-dysjciwkfnlaygdqhqajdvoflwdy/Build/Products/Debug-iphoneos/libBetwineBleSDK.a"; sourceTree = "<group>"; };
+		7E9D6D5519AB38AD00AE5A46 /* BTWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTWMainViewController.h; path = Demo/BTWMainViewController.h; sourceTree = "<group>"; };
+		7E9D6D5619AB38AD00AE5A46 /* BTWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTWMainViewController.m; path = Demo/BTWMainViewController.m; sourceTree = "<group>"; };
+		7E9D6DDD19AB39F600AE5A46 /* avatar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = avatar; sourceTree = "<group>"; };
+		7E9D6DDF19AB3A2200AE5A46 /* BTWAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTWAvatarView.h; path = Demo/BTWAvatarView.h; sourceTree = "<group>"; };
+		7E9D6DE019AB3A2200AE5A46 /* BTWAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTWAvatarView.m; path = Demo/BTWAvatarView.m; sourceTree = "<group>"; };
+		7EBA8CAD19A499D7003A2740 /* BetwineiOSBleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetwineiOSBleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EBA8CB019A499D7003A2740 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7EBA8CB219A499D7003A2740 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7EBA8CB419A499D7003A2740 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7EBA8CB819A499D7003A2740 /* BetwineiOSBleDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BetwineiOSBleDemo-Info.plist"; sourceTree = "<group>"; };
+		7EBA8CBA19A499D7003A2740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7EBA8CBC19A499D7003A2740 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7EBA8CBE19A499D7003A2740 /* BetwineiOSBleDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BetwineiOSBleDemo-Prefix.pch"; sourceTree = "<group>"; };
+		7EBA8CBF19A499D7003A2740 /* BTWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTWAppDelegate.h; sourceTree = "<group>"; };
+		7EBA8CC019A499D7003A2740 /* BTWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTWAppDelegate.m; sourceTree = "<group>"; };
+		7EBA8CC319A499D7003A2740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		7EBA8CC619A499D7003A2740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		7EBA8CC819A499D7003A2740 /* BTWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTWViewController.h; sourceTree = "<group>"; };
+		7EBA8CC919A499D7003A2740 /* BTWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTWViewController.m; sourceTree = "<group>"; };
+		7EBA8CCB19A499D7003A2740 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7EBA8CD119A499D7003A2740 /* BetwineiOSBleDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetwineiOSBleDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EBA8CD219A499D7003A2740 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7EBA8CDA19A499D7003A2740 /* BetwineiOSBleDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BetwineiOSBleDemoTests-Info.plist"; sourceTree = "<group>"; };
+		7EBA8CDC19A499D7003A2740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7EBA8CDE19A499D7003A2740 /* BetwineiOSBleDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BetwineiOSBleDemoTests.m; sourceTree = "<group>"; };
+		7EBA8CE819A49AC8003A2740 /* libBetwineBleSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBetwineBleSDK.a; path = "../BetwineBleSDK/build/Debug-iphoneos/libBetwineBleSDK.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7EBA8CAA19A499D7003A2740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9D6D5219AB308200AE5A46 /* libBetwineBleSDK.a in Frameworks */,
+				7EBA8CB319A499D7003A2740 /* CoreGraphics.framework in Frameworks */,
+				7EBA8CB519A499D7003A2740 /* UIKit.framework in Frameworks */,
+				7EBA8CB119A499D7003A2740 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EBA8CCE19A499D7003A2740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EBA8CD319A499D7003A2740 /* XCTest.framework in Frameworks */,
+				7EBA8CD519A499D7003A2740 /* UIKit.framework in Frameworks */,
+				7EBA8CD419A499D7003A2740 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E9D6D5419AB384F00AE5A46 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D6DDD19AB39F600AE5A46 /* avatar */,
+				7E9D6DDF19AB3A2200AE5A46 /* BTWAvatarView.h */,
+				7E9D6DE019AB3A2200AE5A46 /* BTWAvatarView.m */,
+				7E9D6D5519AB38AD00AE5A46 /* BTWMainViewController.h */,
+				7E9D6D5619AB38AD00AE5A46 /* BTWMainViewController.m */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+		7EBA8CA419A499D7003A2740 = {
+			isa = PBXGroup;
+			children = (
+				7E9D6D3019AB2DE000AE5A46 /* BetwineBleSDK.xcodeproj */,
+				7EBA8CB619A499D7003A2740 /* BetwineiOSBleDemo */,
+				7EBA8CD819A499D7003A2740 /* BetwineiOSBleDemoTests */,
+				7EBA8CAF19A499D7003A2740 /* Frameworks */,
+				7EBA8CAE19A499D7003A2740 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7EBA8CAE19A499D7003A2740 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EBA8CAD19A499D7003A2740 /* BetwineiOSBleDemo.app */,
+				7EBA8CD119A499D7003A2740 /* BetwineiOSBleDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7EBA8CAF19A499D7003A2740 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D6D5119AB308200AE5A46 /* libBetwineBleSDK.a */,
+				7EBA8CE819A49AC8003A2740 /* libBetwineBleSDK.a */,
+				7EBA8CB019A499D7003A2740 /* Foundation.framework */,
+				7EBA8CB219A499D7003A2740 /* CoreGraphics.framework */,
+				7EBA8CB419A499D7003A2740 /* UIKit.framework */,
+				7EBA8CD219A499D7003A2740 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7EBA8CB619A499D7003A2740 /* BetwineiOSBleDemo */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D6D5419AB384F00AE5A46 /* Demo */,
+				7EBA8CBF19A499D7003A2740 /* BTWAppDelegate.h */,
+				7EBA8CC019A499D7003A2740 /* BTWAppDelegate.m */,
+				7EBA8CC219A499D7003A2740 /* Main_iPhone.storyboard */,
+				7EBA8CC519A499D7003A2740 /* Main_iPad.storyboard */,
+				7EBA8CC819A499D7003A2740 /* BTWViewController.h */,
+				7EBA8CC919A499D7003A2740 /* BTWViewController.m */,
+				7EBA8CCB19A499D7003A2740 /* Images.xcassets */,
+				7EBA8CB719A499D7003A2740 /* Supporting Files */,
+			);
+			path = BetwineiOSBleDemo;
+			sourceTree = "<group>";
+		};
+		7EBA8CB719A499D7003A2740 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EBA8CB819A499D7003A2740 /* BetwineiOSBleDemo-Info.plist */,
+				7EBA8CB919A499D7003A2740 /* InfoPlist.strings */,
+				7EBA8CBC19A499D7003A2740 /* main.m */,
+				7EBA8CBE19A499D7003A2740 /* BetwineiOSBleDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EBA8CD819A499D7003A2740 /* BetwineiOSBleDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				7EBA8CDE19A499D7003A2740 /* BetwineiOSBleDemoTests.m */,
+				7EBA8CD919A499D7003A2740 /* Supporting Files */,
+			);
+			path = BetwineiOSBleDemoTests;
+			sourceTree = "<group>";
+		};
+		7EBA8CD919A499D7003A2740 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EBA8CDA19A499D7003A2740 /* BetwineiOSBleDemoTests-Info.plist */,
+				7EBA8CDB19A499D7003A2740 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7EBA8CAC19A499D7003A2740 /* BetwineiOSBleDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EBA8CE219A499D7003A2740 /* Build configuration list for PBXNativeTarget "BetwineiOSBleDemo" */;
+			buildPhases = (
+				7EBA8CA919A499D7003A2740 /* Sources */,
+				7EBA8CAA19A499D7003A2740 /* Frameworks */,
+				7EBA8CAB19A499D7003A2740 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BetwineiOSBleDemo;
+			productName = BetwineiOSBleDemo;
+			productReference = 7EBA8CAD19A499D7003A2740 /* BetwineiOSBleDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7EBA8CD019A499D7003A2740 /* BetwineiOSBleDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EBA8CE519A499D7003A2740 /* Build configuration list for PBXNativeTarget "BetwineiOSBleDemoTests" */;
+			buildPhases = (
+				7EBA8CCD19A499D7003A2740 /* Sources */,
+				7EBA8CCE19A499D7003A2740 /* Frameworks */,
+				7EBA8CCF19A499D7003A2740 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EBA8CD719A499D7003A2740 /* PBXTargetDependency */,
+			);
+			name = BetwineiOSBleDemoTests;
+			productName = BetwineiOSBleDemoTests;
+			productReference = 7EBA8CD119A499D7003A2740 /* BetwineiOSBleDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7EBA8CA519A499D7003A2740 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BTW;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = imlab.cc;
+				TargetAttributes = {
+					7EBA8CAC19A499D7003A2740 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					7EBA8CD019A499D7003A2740 = {
+						TestTargetID = 7EBA8CAC19A499D7003A2740;
+					};
+				};
+			};
+			buildConfigurationList = 7EBA8CA819A499D7003A2740 /* Build configuration list for PBXProject "BetwineiOSBleDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7EBA8CA419A499D7003A2740;
+			productRefGroup = 7EBA8CAE19A499D7003A2740 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EBA8CAC19A499D7003A2740 /* BetwineiOSBleDemo */,
+				7EBA8CD019A499D7003A2740 /* BetwineiOSBleDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7EBA8CAB19A499D7003A2740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9D6DDE19AB39F600AE5A46 /* avatar in Resources */,
+				7EBA8CC719A499D7003A2740 /* Main_iPad.storyboard in Resources */,
+				7EBA8CCC19A499D7003A2740 /* Images.xcassets in Resources */,
+				7EBA8CC419A499D7003A2740 /* Main_iPhone.storyboard in Resources */,
+				7EBA8CBB19A499D7003A2740 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EBA8CCF19A499D7003A2740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EBA8CDD19A499D7003A2740 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7EBA8CA919A499D7003A2740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EBA8CCA19A499D7003A2740 /* BTWViewController.m in Sources */,
+				7E9D6DE119AB3A2200AE5A46 /* BTWAvatarView.m in Sources */,
+				7EBA8CC119A499D7003A2740 /* BTWAppDelegate.m in Sources */,
+				7EBA8CBD19A499D7003A2740 /* main.m in Sources */,
+				7E9D6D5719AB38AD00AE5A46 /* BTWMainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EBA8CCD19A499D7003A2740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EBA8CDF19A499D7003A2740 /* BetwineiOSBleDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7EBA8CD719A499D7003A2740 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EBA8CAC19A499D7003A2740 /* BetwineiOSBleDemo */;
+			targetProxy = 7EBA8CD619A499D7003A2740 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7EBA8CB919A499D7003A2740 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EBA8CBA19A499D7003A2740 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7EBA8CC219A499D7003A2740 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EBA8CC319A499D7003A2740 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		7EBA8CC519A499D7003A2740 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EBA8CC619A499D7003A2740 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		7EBA8CDB19A499D7003A2740 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EBA8CDC19A499D7003A2740 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7EBA8CE019A499D7003A2740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7EBA8CE119A499D7003A2740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7EBA8CE319A499D7003A2740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BetwineiOSBleDemo/BetwineiOSBleDemo-Prefix.pch";
+				INFOPLIST_FILE = "BetwineiOSBleDemo/BetwineiOSBleDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/ShareDisk/repos/github/betwine-ble/BetwineBleSDK/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/betwine-ble-dysjciwkfnlaygdqhqajdvoflwdy/Build/Products/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7EBA8CE419A499D7003A2740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BetwineiOSBleDemo/BetwineiOSBleDemo-Prefix.pch";
+				INFOPLIST_FILE = "BetwineiOSBleDemo/BetwineiOSBleDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/ShareDisk/repos/github/betwine-ble/BetwineBleSDK/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/betwine-ble-dysjciwkfnlaygdqhqajdvoflwdy/Build/Products/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7EBA8CE619A499D7003A2740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BetwineiOSBleDemo.app/BetwineiOSBleDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BetwineiOSBleDemo/BetwineiOSBleDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BetwineiOSBleDemoTests/BetwineiOSBleDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7EBA8CE719A499D7003A2740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BetwineiOSBleDemo.app/BetwineiOSBleDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BetwineiOSBleDemo/BetwineiOSBleDemo-Prefix.pch";
+				INFOPLIST_FILE = "BetwineiOSBleDemoTests/BetwineiOSBleDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EBA8CA819A499D7003A2740 /* Build configuration list for PBXProject "BetwineiOSBleDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EBA8CE019A499D7003A2740 /* Debug */,
+				7EBA8CE119A499D7003A2740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EBA8CE219A499D7003A2740 /* Build configuration list for PBXNativeTarget "BetwineiOSBleDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EBA8CE319A499D7003A2740 /* Debug */,
+				7EBA8CE419A499D7003A2740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EBA8CE519A499D7003A2740 /* Build configuration list for PBXNativeTarget "BetwineiOSBleDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EBA8CE619A499D7003A2740 /* Debug */,
+				7EBA8CE719A499D7003A2740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EBA8CA519A499D7003A2740 /* Project object */;
+}

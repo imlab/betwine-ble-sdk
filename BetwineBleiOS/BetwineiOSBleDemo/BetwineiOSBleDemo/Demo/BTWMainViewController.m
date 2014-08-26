@@ -138,7 +138,16 @@
 }
 
 - (IBAction)setTimeBtnClicked:(id)sender {
+    BTBetwineAppInterface *betwineApp = (BTBetwineAppInterface*)[[CMBDBleDeviceManager defaultManager] getDeviceInterfaceByType:CMBDConnectorType_BetwineApp];
     
+    // set system time to badge, and the sitting idle check period from 8:30 to 21:30 (8:30am ~ 9:30pm)
+    NSDate *now = [NSDate date];
+    [betwineApp sendSetSystemTime:now BeginTime:830 EndTime:2130];
+    
+    // alert messages
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:now];
+    [[[UIAlertView alloc] initWithTitle:@"Set System Time" message:[NSString stringWithFormat:@"Betwine device time has been set to %02d:%02d. Idle check period: %02d:%02d ~ %02d:%02d", components.hour, components.minute, 8, 30, 21, 30] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 -(void)onBetwineAppReady {

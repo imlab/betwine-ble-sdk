@@ -29,6 +29,7 @@
 
 /* query methods */
 -(CMBDBleDevice*)getConnectedDeviceByType:(CMBDPeripheralConnectorType)deviceType;
+-(CMBDPeripheralInterface*)getDeviceInterfaceByType:(CMBDPeripheralConnectorType)deviceType;
 
 /* connection methods */
 -(void)connectDeviceWithUUIDStr:(NSString*)uuid;

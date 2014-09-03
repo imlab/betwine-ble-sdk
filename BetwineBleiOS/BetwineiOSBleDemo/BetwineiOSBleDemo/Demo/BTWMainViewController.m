@@ -173,6 +173,7 @@
     
     self.statusLabel.text = [NSString stringWithFormat:@"Device: %@", betwineApp.bleDevice.uuidString];
     self.setTimeBtn.enabled = YES; // enable set time button
+    self.pokeBtn.enabled = YES;
 }
 
 -(void)onBetwineDisconnected {
@@ -182,6 +183,7 @@
     
     // reset fields
     self.setTimeBtn.enabled = NO;
+    self.pokeBtn.enabled = NO;
     self.macLabel.text = @"MAC address: N/A";
     self.productId.text = @"Product Id: N/A";
     self.activityLabel.text = @"Activity: N/A";

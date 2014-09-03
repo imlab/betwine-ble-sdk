@@ -39,6 +39,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7E17B28319B40EC00001BBDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9D6D3019AB2DE000AE5A46 /* BetwineBleSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EBA8C1119A482DE003A2740;
+			remoteInfo = BetwineBleSDK;
+		};
+		7E17B28519B40EC00001BBDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9D6D3019AB2DE000AE5A46 /* BetwineBleSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EBA8C2119A482DF003A2740;
+			remoteInfo = BetwineBleSDKTests;
+		};
 		7EBA8CD619A499D7003A2740 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7EBA8CA519A499D7003A2740 /* Project object */;
@@ -114,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E17B27F19B40EC00001BBDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E17B28419B40EC00001BBDE /* libBetwineBleSDK.a */,
+				7E17B28619B40EC00001BBDE /* BetwineBleSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7E9D6D5419AB384F00AE5A46 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +316,12 @@
 			mainGroup = 7EBA8CA419A499D7003A2740;
 			productRefGroup = 7EBA8CAE19A499D7003A2740 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7E17B27F19B40EC00001BBDE /* Products */;
+					ProjectRef = 7E9D6D3019AB2DE000AE5A46 /* BetwineBleSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7EBA8CAC19A499D7003A2740 /* BetwineiOSBleDemo */,
@@ -300,6 +329,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7E17B28419B40EC00001BBDE /* libBetwineBleSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBetwineBleSDK.a;
+			remoteRef = 7E17B28319B40EC00001BBDE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E17B28619B40EC00001BBDE /* BetwineBleSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BetwineBleSDKTests.xctest;
+			remoteRef = 7E17B28519B40EC00001BBDE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7EBA8CAB19A499D7003A2740 /* Resources */ = {
@@ -417,6 +463,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -435,6 +482,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -456,6 +504,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -467,6 +516,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -477,6 +527,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BetwineiOSBleDemo/BetwineiOSBleDemo-Prefix.pch";
 				INFOPLIST_FILE = "BetwineiOSBleDemo/BetwineiOSBleDemo-Info.plist";
@@ -487,6 +539,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -495,6 +548,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BetwineiOSBleDemo/BetwineiOSBleDemo-Prefix.pch";
 				INFOPLIST_FILE = "BetwineiOSBleDemo/BetwineiOSBleDemo-Info.plist";
@@ -505,6 +560,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

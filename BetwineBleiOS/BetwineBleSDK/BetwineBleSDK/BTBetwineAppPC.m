@@ -55,6 +55,9 @@
     if (self.activePeripheral && hpChar) {
         [self.activePeripheral readValueForCharacteristic:hpChar];
     }
+    else {
+        NSLog(@"[CMBD] hpChar characteristic not ready, ignored");
+    }
 }
 
 - (void)enablePedometer {
@@ -88,6 +91,9 @@
         [self.activePeripheral readValueForCharacteristic:stateChar];
         [self.activePeripheral readValueForCharacteristic:stepChar];
     }
+    else {
+        NSLog(@"[CMBD] state or step characteristics not ready, ignored");
+    }
 }
 
 - (void)setMotor:(Byte)motorValue {
@@ -95,6 +101,9 @@
     
     if (self.activePeripheral && motorChar) {
         [self.activePeripheral writeValue:d forCharacteristic:motorChar type:CBCharacteristicWriteWithResponse];
+    }
+    else {
+        NSLog(@"[CMBD] motor characteristic not ready, ignored");
     }
 }
 
@@ -108,11 +117,17 @@
     if (self.activePeripheral && timeChar) {
         [self.activePeripheral writeValue:d forCharacteristic:timeChar type:CBCharacteristicWriteWithResponse];
     }
+    else {
+        NSLog(@"[CMBD] set time characteristic not ready, ignored");
+    }
 }
 
 - (void)readTime {
     if (self.activePeripheral && timeChar) {
         [self.activePeripheral readValueForCharacteristic:timeChar];
+    }
+    else {
+        NSLog(@"[CMBD] read time characteristic not ready, ignored");
     }
 }
 
@@ -120,11 +135,17 @@
     if (self.activePeripheral && battChar) {
         [self.activePeripheral readValueForCharacteristic:battChar];
     }
+    else {
+        NSLog(@"[CMBD] read battery characteristic not ready, ignored");
+    }
 }
 
 - (void)readOldsteps {
     if (self.activePeripheral && oldstepsChar) {
         [self.activePeripheral readValueForCharacteristic:oldstepsChar];
+    }
+    else {
+        NSLog(@"[CMBD] read history steps characteristic not ready, ignored");
     }
 }
 
@@ -148,6 +169,9 @@
     if (self.activePeripheral && deviceInfoChar) {
         [self.activePeripheral readValueForCharacteristic:deviceInfoChar];
     }
+    else {
+        NSLog(@"[CMBD] read device info characteristic not ready, ignored");
+    }
 }
 
 -(void)enableVibrateTest
@@ -169,6 +193,9 @@
 {
     if (self.activePeripheral && vibTestChar) {
         [self.activePeripheral readValueForCharacteristic:vibTestChar];
+    }
+    else {
+        NSLog(@"[CMBD] read vibrate test characteristic not ready, ignored");
     }
 }
 

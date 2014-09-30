@@ -22,6 +22,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cc.imlab.ble.betwine.app.BTAppDefines;
+import cc.imlab.ble.betwine.app.BTBetwineAppInterface;
 import cc.imlab.ble.bleapi.BetwineCMBinder;
 import cc.imlab.ble.bleapi.BetwineCMDefines;
 import cc.imlab.ble.bleapi.BetwineCMDefines.DeviceType;
@@ -33,11 +34,11 @@ public class BetwineDemoActivity extends Activity {
 	// Betwine CM Service
 	Intent cmServiceIntent = null;
 	BetwineCMBinder cmBinder = null;
-	
+	BTBetwineAppInterface btApp;
 	
 	/* widgets */
 	private TextView textMacAddr;
-	private TextView textBTStats;
+	private TextView textBTStatus;
 	private TextView textProdId;
 	private TextView textHistorySteps;
 	private TextView textActivity;
@@ -78,7 +79,7 @@ public class BetwineDemoActivity extends Activity {
 		setContentView(R.layout.activity_betwine_demo);
 		
 		textMacAddr = (TextView) findViewById(R.id.textMacAddr);
-		textBTStats = (TextView) findViewById(R.id.textBTStatus);
+		textBTStatus = (TextView) findViewById(R.id.textBTStatus);
 		textProdId = (TextView) findViewById(R.id.textProdId);
 		textHistorySteps = (TextView) findViewById(R.id.textHistorySteps);
 		textActivity = (TextView) findViewById(R.id.textActivity);
@@ -99,6 +100,9 @@ public class BetwineDemoActivity extends Activity {
 		btnPoke.setOnClickListener(btnPokeClickListener);
 		btnConnect.setOnClickListener(btnConnectClickListener);
 		btnSetTime.setOnClickListener(btnSetTimeClickListener);
+		
+		btnPoke.setEnabled(false);
+		btnSetTime.setEnabled(false);
 		
 		// start BetwineCM service
 		cmServiceIntent = new Intent(this, BetwineCMService.class);
@@ -165,7 +169,19 @@ public class BetwineDemoActivity extends Activity {
 		
 		@Override
 		public void onClick(View v) {
-			
+			if (btApp != null) {
+				
+				btApp.leds[1] = checkBoxLed1.isChecked();
+				btApp.leds[2] = checkBoxLed2.isChecked();
+				btApp.leds[3] = checkBoxLed3.isChecked();
+				btApp.leds[4] = checkBoxLed4.isChecked();
+				btApp.leds[5] = checkBoxLed5.isChecked();
+				
+				btApp.sendVibrateAndLED();
+			}
+			else {
+				Log.w(TAG, "device is not conencted. cannot poke!");
+			}
 		}
 	};
 	
@@ -177,7 +193,7 @@ public class BetwineDemoActivity extends Activity {
 			if (cmBinder.hasPeripheralConnectedWithType(BetwineCMDefines.DeviceType.BetwineApp)) {
 				
 				// disconnect device
-				
+				cmBinder.disconnectPeriphearlWithType(BetwineCMDefines.DeviceType.BetwineApp);
 			}
 			else {
 				// scan for device
@@ -216,7 +232,7 @@ public class BetwineDemoActivity extends Activity {
 			String action = intent.getAction();
 			
 			if (BetwineCMDefines.ACTION_CM_START_SCAN.equals(action)) {
-
+				
 			}
 			else if (BetwineCMDefines.ACTION_CM_STOP_SCAN.equals(action)) {
 				btnConnect.setText("Scan");
@@ -229,9 +245,16 @@ public class BetwineDemoActivity extends Activity {
 			else if (BetwineCMDefines.ACTION_CM_CONNECTED.equals(action)) {
 				btnConnect.setText("Disconnect");
 				btnConnect.setEnabled(true);
+				btnPoke.setEnabled(true);
+				btnSetTime.setEnabled(true);
+				
+				btApp = (BTBetwineAppInterface) cmBinder.getInterfaceWithType(BetwineCMDefines.DeviceType.BetwineApp);
+				btApp.sendBindingVibrate(); // binding vibrate
 			}
 			else if (BetwineCMDefines.ACTION_CM_DISCONNECTED.equals(action)) {
 				boolean keepConnection = intent.getBooleanExtra("keepConnection", true);
+				btApp = null; // to disable btApp interaction
+				
 				if (keepConnection) {
 					btnConnect.setText("Connecting...");
 					btnConnect.setEnabled(false);
@@ -239,6 +262,9 @@ public class BetwineDemoActivity extends Activity {
 				else {
 					btnConnect.setText("Scan");
 					btnConnect.setEnabled(true);
+					
+					btnPoke.setEnabled(false);
+					btnSetTime.setEnabled(false);
 				}
 			}
 		}
@@ -249,6 +275,16 @@ public class BetwineDemoActivity extends Activity {
 	/* Intent Filter for BetwineApp data events */
 	private IntentFilter makeBetwineAppIntentFilter() {
 		IntentFilter intentFilter = new IntentFilter();
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_ACT);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_ACTIVE_MOVE);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_ALL_STATUS);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_BATTERY);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_DEVICE_INFO);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_ENERGY);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_HISTORY_STEPS);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_LAST_VIBRATE);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_STEPS);
+		intentFilter.addAction(BTAppDefines.ACTION_RECEIVE_TIME);
 		
 		return intentFilter;
 	}

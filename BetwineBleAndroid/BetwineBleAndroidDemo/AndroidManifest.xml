@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="BetwineDemoActivity"></activity>
+        <activity android:name="BetwineDemoActivity" android:screenOrientation="portrait"></activity>
         <service android:name="cc.imlab.ble.bleapi.BetwineCMService"></service>
     </application>
 

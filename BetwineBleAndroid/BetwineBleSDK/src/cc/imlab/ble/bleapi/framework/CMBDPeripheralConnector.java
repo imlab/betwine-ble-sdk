@@ -57,6 +57,10 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 	public void broadcast(Intent intent) {
 		cm.broadcastUpdate(intent);
 	}
+
+	public BluetoothDevice getDevice() {
+		return device;
+	}
 	
 	abstract public DeviceType getDeviceType();
 	abstract public CMBDPeripheralInterface getInterface();
@@ -66,11 +70,11 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 	abstract public void onDataUpdate(BluetoothGattCharacteristic characteristic);
 	
 	public void onServiceDiscoverReady() {
-		onCharacteristicsDiscovered();
-		
 		// notify device status ready
 		Intent intent = new Intent(BetwineCMDefines.ACTION_CM_CONNECTED);
 		cm.broadcastUpdate(intent);
+		
+		onCharacteristicsDiscovered();
 	}
 
 	/* BluetoothGattCallback methods */
@@ -100,7 +104,11 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 //        		gatt = device.connectGatt(cm.getServiceContext(), true, this);
             	connect();
             }
-            
+            else {
+            	// notify disconnect
+            	Intent intent = new Intent(BetwineCMDefines.ACTION_CM_DISCONNECTED);
+            	cm.broadcastUpdate(intent);
+            }
         }
     }
 

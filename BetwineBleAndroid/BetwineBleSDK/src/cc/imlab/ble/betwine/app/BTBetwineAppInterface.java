@@ -5,13 +5,13 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import android.R.integer;
 import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
-
+import cc.imlab.ble.bleapi.framework.CMBDPeripheralConnector;
 import cc.imlab.ble.bleapi.framework.CMBDPeripheralInterface;
 
-public class BTBetwineAppInterface implements CMBDPeripheralInterface {
+public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 	private static final String TAG = BTBetwineAppInterface.class.getSimpleName();
 	
 	private BTBetwineAppPC pc;
@@ -33,44 +33,53 @@ public class BTBetwineAppInterface implements CMBDPeripheralInterface {
 	public String productId;
 	public String macAddr;
 	
+	public Handler mHandler;
+	
 	public BTBetwineAppInterface(BTBetwineAppPC pc) {
 		this.pc = pc;
-		
 		this.appReady = false;
 		
+		this.mHandler = new Handler();
 	}
 
-	@Override
 	public void onPCReady() {
+		Log.i(TAG, "BetwineApp discover is ready!");
 		this.appReady = true;
 		
 		// register notify characteristics
 		pc.enablePedometer();
 		pc.enableHp();
 		pc.enableTime();
-		pc.readHp();
-		pc.readPedometer();
-		pc.readBatt();
-		pc.readOldSteps();
-		
 		pc.enableDeviceInfo();
 		pc.enableVibrateTest();
-		pc.readDeviceInfo();
-		pc.readVibrateTest();
 		
-		// proceed Async Queue
-		proceedAsyncQueue();
-		
+		mHandler.postDelayed(new Runnable() {
+			
+			@Override
+			public void run() {
+				pc.readHp();
+				pc.readPedometer();
+				pc.readBatt();
+				pc.readOldSteps();
+				pc.readDeviceInfo();
+				pc.readVibrateTest();
+				
+				// proceed Async Queue
+				proceedAsyncQueue();
+			}
+		}, 500);
 	}
 	
-	@Override
 	public void onConnected() {
 		// do nothing
 	}
 	
-	@Override
 	public void onDisconnected() {
 		this.appReady = false;
+	}
+	
+	protected CMBDPeripheralConnector getConnector() {
+		return this.pc;
 	}
 
 	public Boolean sendSetSystemTime(Date time, Integer beginTime, Integer endTime) {
@@ -462,4 +471,5 @@ public class BTBetwineAppInterface implements CMBDPeripheralInterface {
 		BTAsyncRequest req = new BTAsyncRequest(BTAsyncRequestType.BindingVibrate, (byte)0xFF);
 		asyncQueueSaveRequest(req);
 	}
+	
 }

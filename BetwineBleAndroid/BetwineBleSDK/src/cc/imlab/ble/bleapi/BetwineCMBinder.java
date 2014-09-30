@@ -1,5 +1,8 @@
 package cc.imlab.ble.bleapi;
 
+import cc.imlab.ble.betwine.app.BTBetwineAppInterface;
+import cc.imlab.ble.bleapi.framework.CMBDPeripheralConnector;
+import cc.imlab.ble.bleapi.framework.CMBDPeripheralInterface;
 import android.os.Binder;
 
 public class BetwineCMBinder extends Binder {
@@ -21,6 +24,15 @@ public class BetwineCMBinder extends Binder {
 	
 	public boolean hasPeripheralConnectedWithType(BetwineCMDefines.DeviceType type) {
 		return cm.hasPeripheralConnectedWithType(type);
+	}
+	
+	public void disconnectPeriphearlWithType(BetwineCMDefines.DeviceType type) {
+		CMBDPeripheralConnector pc =  cm.getConnectorWithType(type);
+		pc.disconnect();
+	}
+	
+	public CMBDPeripheralInterface getInterfaceWithType(BetwineCMDefines.DeviceType type) {
+		return cm.getInterfaceWithType(type);
 	}
 	
 	/**

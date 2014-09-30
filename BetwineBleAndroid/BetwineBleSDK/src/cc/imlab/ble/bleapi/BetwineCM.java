@@ -135,15 +135,29 @@ public class BetwineCM {
     }
     
     public boolean hasPeripheralConnectedWithType(DeviceType type) {
+    	return getConnectorWithType(type) != null;
+    }
+    
+    public CMBDPeripheralConnector getConnectorWithType(DeviceType type) {
+
     	for (CMBDPeripheralConnector pc: connectList.values()) {
     		if (pc.getDeviceType() == type) {
-    			return true;
+    			return pc;
     		}
     	}
     	
-    	return false;
+    	return null;
     }
-
+    
+    public CMBDPeripheralInterface getInterfaceWithType(DeviceType type) {
+    	CMBDPeripheralConnector pc = getConnectorWithType(type);
+    	if (pc != null) {
+    		return pc.getInterface();
+    	}
+    	
+    	return null;
+    }
+    
     public void scanBleDeviceWithType(DeviceType type) {
 
 		scanDeviceType = type;
@@ -257,6 +271,7 @@ public class BetwineCM {
     			
     	if (device != null) {
 			BTBetwineAppPC appPC = new BTBetwineAppPC(device, this);
+			connectList.put(address, appPC);
 	    	appPC.connect();
     	}
     	else {

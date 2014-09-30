@@ -83,62 +83,62 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 				
 				if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_HP_VALUE_UUID))) {
-					Log.d(TAG, "found HP char" + chUuid);
+					Log.d(TAG, "found HP char " + chUuid);
 					hpChar = ch;	
 					matchCnt++;
 				}
 				else if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_PM_STATE_UUID))) {
-					Log.d(TAG, "found state char" + chUuid);
+					Log.d(TAG, "found state char " + chUuid);
 					stateChar = ch;
 					matchCnt++;
 				}
 
 				else if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_PM_VALUE_UUID))) {
-					Log.d(TAG, "found steps char" + chUuid);
+					Log.d(TAG, "found steps char " + chUuid);
 					stepChar = ch;
 					matchCnt++;
 				}
 
 				else if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_MR_VALUE_UUID))) {
-					Log.d(TAG, "found motor char" + chUuid);
+					Log.d(TAG, "found motor char " + chUuid);
 					motorChar = ch;
 					matchCnt++;
 				}
 
 				else if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_MR_TEST_VALUE_UUID))) {
-					Log.d(TAG, "found vib test char" + chUuid);
+					Log.d(TAG, "found vib test char " + chUuid);
 					vibTestChar = ch;
 					matchCnt++;
 				}
 
 				else if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_TS_VALUE_UUID))) {
-					Log.d(TAG, "found time char" + chUuid);
+					Log.d(TAG, "found time char " + chUuid);
 					timeChar = ch;
 					matchCnt++;
 				}
 
 				else if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_BS_VALUE_UUID))) {
-					Log.d(TAG, "found batt char" + chUuid);
+					Log.d(TAG, "found batt char " + chUuid);
 					battChar = ch;
 					matchCnt++;
 				}
 				
 				else if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_HS_STEPS_UUID))) {
-					Log.d(TAG, "found old steps char" + chUuid);
+					Log.d(TAG, "found old steps char " + chUuid);
 					oldStepChar = ch;
 					matchCnt++;
 				}				
 
 				else if (chUuid.equals(
 						BTAppDefines.uuidForAndroid(BTAppDefines.CB_MAC_VALUE_UUID))) {
-					Log.d(TAG, "found device info char" + chUuid);
+					Log.d(TAG, "found device info char " + chUuid);
 					deviceInfoChar = ch;
 					matchCnt++;
 				}

@@ -67,7 +67,7 @@ public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 				// proceed Async Queue
 				proceedAsyncQueue();
 			}
-		}, 500);
+		}, 1000);
 	}
 	
 	public void onConnected() {
@@ -244,7 +244,7 @@ public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 	public void hpUpdate(byte hpValue) {
 		energy = hpValue;
 		
-		Log.i(TAG, "receive energy: " + hpValue);
+		Log.i(TAG, "receive energy(hp): " + hpValue);
 		
 		Intent intent = new Intent(BTAppDefines.ACTION_RECEIVE_ENERGY);
 		intent.putExtra("energy", energy);

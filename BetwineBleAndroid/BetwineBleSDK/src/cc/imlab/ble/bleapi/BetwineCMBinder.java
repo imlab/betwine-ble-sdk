@@ -1,9 +1,8 @@
 package cc.imlab.ble.bleapi;
 
-import cc.imlab.ble.betwine.app.BTBetwineAppInterface;
+import android.os.Binder;
 import cc.imlab.ble.bleapi.framework.CMBDPeripheralConnector;
 import cc.imlab.ble.bleapi.framework.CMBDPeripheralInterface;
-import android.os.Binder;
 
 public class BetwineCMBinder extends Binder {
 

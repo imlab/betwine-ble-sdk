@@ -252,4 +252,12 @@
 
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/btnSetTime"
+        android:layout_below="@+id/btnSetTime"
+        android:text="Test Button" />
+
 </RelativeLayout>

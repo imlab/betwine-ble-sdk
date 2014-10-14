@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cc.imlab.betwineble.R.id;
 import cc.imlab.ble.betwine.app.BTAppDefines;
 import cc.imlab.ble.betwine.app.BTBetwineAppInterface;
 import cc.imlab.ble.bleapi.BetwineCMBinder;
@@ -55,6 +56,7 @@ public class BetwineDemoActivity extends Activity {
 	private Button btnPoke;
 	private Button btnConnect;
 	private Button btnSetTime;
+	private Button btnTest;
 	
 	private ImageView imageAvatar;
 	
@@ -90,6 +92,7 @@ public class BetwineDemoActivity extends Activity {
 		btnPoke = (Button) findViewById(R.id.btnPoke);
 		btnConnect = (Button) findViewById(R.id.btnConnect);
 		btnSetTime = (Button) findViewById(R.id.btnSetTime);
+		btnTest = (Button) findViewById(R.id.btnTest);
 		checkBoxLed1 = (CheckBox)findViewById(R.id.checkBox1);
 		checkBoxLed2 = (CheckBox)findViewById(R.id.checkBox2);
 		checkBoxLed3 = (CheckBox)findViewById(R.id.checkBox3);
@@ -100,9 +103,11 @@ public class BetwineDemoActivity extends Activity {
 		btnPoke.setOnClickListener(btnPokeClickListener);
 		btnConnect.setOnClickListener(btnConnectClickListener);
 		btnSetTime.setOnClickListener(btnSetTimeClickListener);
+		btnTest.setOnClickListener(btnTestClickListener);
 		
 		btnPoke.setEnabled(false);
 		btnSetTime.setEnabled(false);
+		btnTest.setEnabled(false);
 		
 		// start BetwineCM service
 		cmServiceIntent = new Intent(this, BetwineCMService.class);
@@ -209,7 +214,17 @@ public class BetwineDemoActivity extends Activity {
 		
 		@Override
 		public void onClick(View v) {
-			
+			Log.i(TAG, "Btn Set Time not implemented yet");
+		}
+	};
+	
+	private OnClickListener btnTestClickListener = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			if (btApp != null) {
+				btApp.sendReadBattery();
+			}
 		}
 	};
 	
@@ -247,6 +262,7 @@ public class BetwineDemoActivity extends Activity {
 				btnConnect.setEnabled(true);
 				btnPoke.setEnabled(true);
 				btnSetTime.setEnabled(true);
+				btnTest.setEnabled(true);
 				
 				btApp = (BTBetwineAppInterface) cmBinder.getInterfaceWithType(BetwineCMDefines.DeviceType.BetwineApp);
 				btApp.sendBindingVibrate(); // binding vibrate
@@ -265,6 +281,7 @@ public class BetwineDemoActivity extends Activity {
 					
 					btnPoke.setEnabled(false);
 					btnSetTime.setEnabled(false);
+					btnTest.setEnabled(true);
 				}
 			}
 		}

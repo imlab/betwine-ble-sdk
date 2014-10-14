@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import android.R;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -19,7 +18,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
-import cc.imlab.ble.betwine.app.BTAppDefines;
 import cc.imlab.ble.betwine.app.BTBetwineAppPC;
 import cc.imlab.ble.bleapi.BetwineCMDefines.DeviceType;
 import cc.imlab.ble.bleapi.framework.CMBDPeripheralConnector;
@@ -236,7 +234,7 @@ public class BetwineCM {
         	// found multiple devices, need to prompt user
         	AlertDialog dialog = new AlertDialog.Builder(cmService)
         			.setTitle("Select Devices")
-        			.setIcon(R.drawable.ic_dialog_info)
+        			.setIcon(android.R.drawable.ic_dialog_info)
         			.setSingleChoiceItems(choiceNames, 
         				0, 
         				new DialogInterface.OnClickListener() {

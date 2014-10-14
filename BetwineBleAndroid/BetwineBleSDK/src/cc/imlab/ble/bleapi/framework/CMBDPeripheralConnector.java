@@ -128,7 +128,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
     public void onCharacteristicRead(BluetoothGatt gatt,
                                      BluetoothGattCharacteristic characteristic,
                                      int status) {
-    	
+    	Log.i(tag(), "--receive charecteristic read -- " + characteristic.getUuid());
         if (status == BluetoothGatt.GATT_SUCCESS) {
         	// data update
         	onDataUpdate(characteristic);
@@ -138,8 +138,16 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
     @Override
     public void onCharacteristicChanged(BluetoothGatt gatt,
                                         BluetoothGattCharacteristic characteristic) {
+    	Log.i(tag(), "--receive charecteristic notification -- " + characteristic.getUuid());
     	// data update
     	onDataUpdate(characteristic);
+    }
+    
+    @Override
+    public void onCharacteristicWrite(BluetoothGatt gatt,
+    		BluetoothGattCharacteristic characteristic, int status) {
+    	super.onCharacteristicWrite(gatt, characteristic, status);
+    	Log.i(tag(), "--write characteristic: " + characteristic.getUuid() + " status: " + status);
     }
     
     /**

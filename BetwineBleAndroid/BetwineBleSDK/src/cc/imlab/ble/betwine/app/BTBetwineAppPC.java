@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.UUID;
 
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.util.Log;
@@ -154,12 +155,14 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 	}
 	
 	public void enableHp() {
+		Log.d(TAG, "enable Hp");
 		if (gatt != null && hpChar != null) {
 			setCharacteristicNotification(hpChar, true);
 		}
 	}
 	
 	public void enablePedometer() {
+		Log.d(TAG, "enable pedometer");
 		if (gatt != null && stateChar != null && stepChar != null) {
 			setCharacteristicNotification(stateChar, true);
 			setCharacteristicNotification(stepChar, true);
@@ -167,18 +170,21 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 	}
 	
 	public void enableTime() {
+		Log.d(TAG, "enable time");
 		if (gatt != null && timeChar != null) {
 			setCharacteristicNotification(timeChar, true);
 		}
 	}
 	
 	public void enableDeviceInfo() {
+		Log.d(TAG, "enable device info");
 		if (gatt != null && deviceInfoChar != null) {
 			setCharacteristicNotification(deviceInfoChar, true);
 		}
 	}
 	
 	public void enableVibrateTest() {
+		Log.d(TAG, "enable vib test");
 		if (gatt != null && vibTestChar != null) {
 			setCharacteristicNotification(vibTestChar, true);
 		}
@@ -217,12 +223,14 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 	
 	public void readHp() {
 		if (gatt != null && hpChar != null) {
+			Log.d(tag(), "try to read hp");
 			readCharacteristic(hpChar);
 		}
 	}
 	
 	public void readPedometer() {
 		if (gatt != null && stateChar != null && stepChar != null) {
+			Log.d(tag(), "try to read state and step");
 			readCharacteristic(stateChar);
 			readCharacteristic(stepChar);
 		}
@@ -230,42 +238,49 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 	
 	public void readTime() {
 		if (gatt != null && timeChar != null) {
+			Log.d(tag(), "try to read time");
 			readCharacteristic(timeChar);
 		}
 	}
 	
 	public void readBatt() {
 		if (gatt != null && battChar != null) {
+			Log.d(tag(), "try to read battery");
 			readCharacteristic(battChar);
 		}
 	}
 	
 	public void readOldSteps() {
 		if (gatt != null && oldStepChar != null) {
+			Log.d(tag(), "try to read history steps");
 			readCharacteristic(oldStepChar);
 		}
 	}
 	
 	public void readDeviceInfo() {
 		if (gatt != null && deviceInfoChar != null) {
+			Log.d(tag(), "try to read device info");
 			readCharacteristic(deviceInfoChar);
 		}
 	}
 	
 	public void readVibrateTest() {
 		if (gatt != null && vibTestChar != null) {
+			Log.d(tag(), "try to read vib test");
 			readCharacteristic(vibTestChar);
 		}
 	}
 	
 	public void setMotor(byte motorValue) {
 		if (gatt != null && motorChar != null) {
+			Log.d(tag(), "try to send motor and led");
 			writeCharacteristic(motorChar, new byte[]{motorValue});
 		}
 	}
 	
 	public void setTime(byte[] time) {
 		 if (gatt != null && timeChar != null) {
+				Log.d(tag(), "try to send time");
 			 writeCharacteristic(timeChar, time);
 		 }
 	}

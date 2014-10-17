@@ -62,6 +62,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 			gattQueue.setGatt(null);
 			
 			gatt.close();
+			keepConnection = false;
 		}
 	}
 	

@@ -46,17 +46,20 @@ public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 		Log.i(TAG, "BetwineApp discover is ready!");
 		this.appReady = true;
 		
-		// register notify characteristics
-		pc.enablePedometer();
-		pc.enableHp();
-		pc.enableTime();
-		pc.enableDeviceInfo();
-		pc.enableVibrateTest();
 		
 		mHandler.postDelayed(new Runnable() {
 			
 			@Override
 			public void run() {
+
+				// register notify characteristics
+				pc.enablePedometer();
+				pc.enableHp();
+				pc.enableTime();
+				pc.enableDeviceInfo();
+				pc.enableVibrateTest();
+				
+				// read data
 				pc.readHp();
 				pc.readPedometer();
 				pc.readBatt();
@@ -67,7 +70,7 @@ public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 				// proceed Async Queue
 				proceedAsyncQueue();
 			}
-		}, 1000);
+		}, 2000);
 	}
 	
 	public void onConnected() {

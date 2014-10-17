@@ -26,12 +26,15 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 	private boolean keepConnection = false;
 
 	abstract protected String tag(); // logger tag
+	
+	private CMBDGattQueue gattQueue;
 
 	public CMBDPeripheralConnector(BluetoothDevice device, BetwineCM cm) {
 		super();
 		
 		this.device = device;
 		this.cm = cm;
+		this.gattQueue = new CMBDGattQueue();
 	}
 	
 	public void connect() {
@@ -40,18 +43,24 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 		
 		mConnectionState = BetwineCMDefines.STATE_CONNECTING;
 		gatt = device.connectGatt(cm.getServiceContext(), true, this);
+		gattQueue.setGatt(gatt);
 		keepConnection = true;
 	}
 	
 	public void disconnect(){
 		if (gatt != null) {
+			gattQueue.setGatt(null);
+			
 			gatt.disconnect();
 			keepConnection = false;
+			
 		}
 	}
 	
 	public void close() {
 		if (gatt != null) {
+			gattQueue.setGatt(null);
+			
 			gatt.close();
 		}
 	}
@@ -82,7 +91,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 	/* BluetoothGattCallback methods */
    @Override
     public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
-    	
+	   
         if (newState == BetwineCMDefines.STATE_CONNECTED) {
             mConnectionState = BetwineCMDefines.STATE_CONNECTED;
             onConnected();
@@ -135,6 +144,8 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
         	// data update
         	onDataUpdate(characteristic);
         }
+        
+        gattQueue.executeNextQueueCommand();
     }
 
     @Override
@@ -143,6 +154,9 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
     	Log.i(tag(), "--receive charecteristic notification -- " + characteristic.getUuid());
     	// data update
     	onDataUpdate(characteristic);
+    	
+
+        gattQueue.executeNextQueueCommand(); // 
     }
     
     @Override
@@ -150,6 +164,9 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
     		BluetoothGattCharacteristic characteristic, int status) {
     	super.onCharacteristicWrite(gatt, characteristic, status);
     	Log.i(tag(), "--write characteristic: " + characteristic.getUuid() + " status: " + status);
+    	
+
+        gattQueue.executeNextQueueCommand();
     }
     
     /**
@@ -161,7 +178,10 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
      */
     public void readCharacteristic(BluetoothGattCharacteristic characteristic) {
         if (gatt != null) {
-            gatt.readCharacteristic(characteristic);
+//            gatt.readCharacteristic(characteristic);
+        	
+        	gattQueue.addReadCommand(characteristic);
+        	gattQueue.checkProceedQueue();
         }
         else {
         	Log.w(tag(), "trying to read characteristic from null gatt(char: " + characteristic +")");
@@ -170,9 +190,12 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
     
     public void writeCharacteristic(BluetoothGattCharacteristic characteristic, byte[] bytes) {
     	if (gatt != null) {
-	    	characteristic.setValue(bytes);
-	    	characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
-	    	gatt.writeCharacteristic(characteristic);
+//	    	characteristic.setValue(bytes);
+//	    	characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+//	    	gatt.writeCharacteristic(characteristic);
+    		
+    		gattQueue.addWriteCommand(characteristic, bytes);
+    		gattQueue.checkProceedQueue();
     	}
     	else {
         	Log.w(tag(), "trying to write characteristic from null gatt(char: " + characteristic + ")");
@@ -191,16 +214,21 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
             Log.w(tag(), "trying to set notification characteristic from null gatt");
             return;
         }
-        gatt.setCharacteristicNotification(characteristic, enabled);
+        gattQueue.addNotifyCommand(characteristic, enabled);
+        gattQueue.checkProceedQueue();
         
-        BluetoothGattDescriptor keyDescriptor = characteristic.getDescriptor(UUID.fromString(BetwineCMDefines.CB_CHAR_UUID_KEY_DESCRIPTOR));
-        if (keyDescriptor != null) {
-        	keyDescriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-			gatt.writeDescriptor(keyDescriptor);
-        }
-        else {
-        	Log.w(tag(), "cannot get key descriptor for notification characteristic");
-        }
+//        gatt.setCharacteristicNotification(characteristic, enabled);
+        
+//        BluetoothGattDescriptor keyDescriptor = characteristic.getDescriptor(UUID.fromString(BetwineCMDefines.CB_CHAR_UUID_KEY_DESCRIPTOR));
+//        if (keyDescriptor != null) {
+//        	keyDescriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+//        	gatt.writeDescriptor(keyDescriptor);
+//        }
+//        else {
+//        	Log.w(tag(), "cannot get key descriptor for notification characteristic");
+//        }
+        
+        
     }
 
     /**

@@ -1,11 +1,13 @@
 package cc.imlab.ble.bleapi.framework;
 
 import java.util.List;
+import java.util.UUID;
 
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
 import android.util.Log;
@@ -190,6 +192,15 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
             return;
         }
         gatt.setCharacteristicNotification(characteristic, enabled);
+        
+        BluetoothGattDescriptor keyDescriptor = characteristic.getDescriptor(UUID.fromString(BetwineCMDefines.CB_CHAR_UUID_KEY_DESCRIPTOR));
+        if (keyDescriptor != null) {
+        	keyDescriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+			gatt.writeDescriptor(keyDescriptor);
+        }
+        else {
+        	Log.w(tag(), "cannot get key descriptor for notification characteristic");
+        }
     }
 
     /**

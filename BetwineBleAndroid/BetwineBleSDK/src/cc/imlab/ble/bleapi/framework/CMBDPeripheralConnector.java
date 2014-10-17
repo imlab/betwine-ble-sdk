@@ -110,17 +110,21 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
             Log.i(tag(), "Disconnected from GATT server.");
             
             // reconnect ...
+        	Intent intent = new Intent(BetwineCMDefines.ACTION_CM_DISCONNECTED);
             if (keepConnection) {
             	Log.i(tag(), "Trying to reconnect device...");
 //        		mConnectionState = BetwineCMDefines.STATE_CONNECTING;
 //        		gatt = device.connectGatt(cm.getServiceContext(), true, this);
             	connect();
+            	
+            	intent.putExtra("keepConnection", true);
             }
             else {
             	// notify disconnect
-            	Intent intent = new Intent(BetwineCMDefines.ACTION_CM_DISCONNECTED);
-            	cm.broadcastUpdate(intent);
+            	intent.putExtra("keepConnection", false);
             }
+
+        	cm.broadcastUpdate(intent);
         }
     }
 

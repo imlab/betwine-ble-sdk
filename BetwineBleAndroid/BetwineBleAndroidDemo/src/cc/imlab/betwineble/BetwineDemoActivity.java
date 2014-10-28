@@ -1,18 +1,14 @@
 package cc.imlab.betwineble;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothAdapter.LeScanCallback;
-import android.bluetooth.BluetoothManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
@@ -21,12 +17,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-import cc.imlab.betwineble.R.id;
 import cc.imlab.ble.betwine.app.BTAppDefines;
 import cc.imlab.ble.betwine.app.BTBetwineAppInterface;
 import cc.imlab.ble.bleapi.BetwineCMBinder;
 import cc.imlab.ble.bleapi.BetwineCMDefines;
-import cc.imlab.ble.bleapi.BetwineCMDefines.DeviceType;
 import cc.imlab.ble.bleapi.BetwineCMService;
 
 public class BetwineDemoActivity extends Activity {
@@ -57,8 +51,14 @@ public class BetwineDemoActivity extends Activity {
 	private Button btnConnect;
 	private Button btnSetTime;
 	private Button btnTest;
+	private Button btnExit;
 	
 	private ImageView imageAvatar;
+	private AnimationDrawable animTired;
+	private AnimationDrawable animBreath;
+	private AnimationDrawable animWalk;
+	private AnimationDrawable animRun;
+	private Integer lastActivity;
 	
 	private final ServiceConnection conn = new ServiceConnection() {
 		
@@ -93,17 +93,28 @@ public class BetwineDemoActivity extends Activity {
 		btnConnect = (Button) findViewById(R.id.btnConnect);
 		btnSetTime = (Button) findViewById(R.id.btnSetTime);
 		btnTest = (Button) findViewById(R.id.btnTest);
+		btnExit = (Button) findViewById(R.id.btnExit); 
 		checkBoxLed1 = (CheckBox)findViewById(R.id.checkBox1);
 		checkBoxLed2 = (CheckBox)findViewById(R.id.checkBox2);
 		checkBoxLed3 = (CheckBox)findViewById(R.id.checkBox3);
 		checkBoxLed4 = (CheckBox)findViewById(R.id.checkBox4);
 		checkBoxLed5 = (CheckBox)findViewById(R.id.checkBox5); 
 		imageAvatar = (ImageView) findViewById(R.id.imageAvatar);
+		animTired = (AnimationDrawable) getResources().getDrawable(R.drawable.tired_animation);
+		animBreath = (AnimationDrawable) getResources().getDrawable(R.drawable.breath_animation);
+		animWalk = (AnimationDrawable) getResources().getDrawable(R.drawable.walking_animation);
+		animRun = (AnimationDrawable) getResources().getDrawable(R.drawable.running_animation);
+		lastActivity = -1;
+		
+		// hide currently not used widgets
+		btnTest.setVisibility(View.INVISIBLE); 
+		textDeviceId.setVisibility(View.INVISIBLE);
 		
 		btnPoke.setOnClickListener(btnPokeClickListener);
 		btnConnect.setOnClickListener(btnConnectClickListener);
 		btnSetTime.setOnClickListener(btnSetTimeClickListener);
 		btnTest.setOnClickListener(btnTestClickListener);
+		btnExit.setOnClickListener(btnExitClickListener);
 		
 		btnPoke.setEnabled(false);
 		btnSetTime.setEnabled(false);
@@ -223,8 +234,17 @@ public class BetwineDemoActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			if (btApp != null) {
-				btApp.sendReadBattery();
+				btApp.sendBindingVibrate();
 			}
+		}
+	};
+	
+	private OnClickListener btnExitClickListener = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			finish();
+//			android.os.Process.killProcess(android.os.Process.myPid());
 		}
 	};
 	
@@ -349,7 +369,37 @@ public class BetwineDemoActivity extends Activity {
 	};
 	
 	public void receiveActivity(Intent intent) {
-		textActivity.setText("" + intent.getIntExtra("acitivity", 0));
+		Integer activity = intent.getIntExtra("activity", 0);
+		textActivity.setText("" + activity);
+		
+		if (lastActivity == activity) // no need to switch animation
+			return;
+
+		AnimationDrawable drawable = (AnimationDrawable) imageAvatar.getBackground();
+		drawable.stop(); // need to stop previous drawable before change?
+
+		switch (activity) {
+		case 0:
+			imageAvatar.setBackground(animTired);
+//			imageAvatar.setBackgroundResource(R.drawable.tired_animation);
+			break;
+		case 1:
+			imageAvatar.setBackground(animBreath);
+//			imageAvatar.setBackgroundResource(R.drawable.breath_animation);
+			break;
+		case 2:
+			imageAvatar.setBackground(animWalk);
+//			imageAvatar.setBackgroundResource(R.drawable.walking_animation);
+			break;
+		case 3:
+			imageAvatar.setBackground(animRun);
+//			imageAvatar.setBackgroundResource(R.drawable.running_animation);
+		default:
+			break;
+		}
+		// start animation
+		drawable = (AnimationDrawable) imageAvatar.getBackground();
+		drawable.start();
 	}
 	
 	public void receiveActiveMove(Intent intent) {

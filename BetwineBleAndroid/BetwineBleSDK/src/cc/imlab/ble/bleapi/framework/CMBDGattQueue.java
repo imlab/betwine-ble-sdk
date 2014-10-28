@@ -6,6 +6,7 @@ import java.util.Queue;
 import java.util.UUID;
 
 import cc.imlab.ble.bleapi.BetwineCMDefines;
+import android.R.integer;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
@@ -50,11 +51,12 @@ public class CMBDGattQueue {
 			this.operation = operation;
 		}
 		
-		void executeWithGatt(BluetoothGatt gatt) {
-			
+		int executeWithGatt(BluetoothGatt gatt) {
+			int next_delay = 10;
 			switch(operation) {
 			case Read:
 				gatt.readCharacteristic(characteristic);
+//				next_delay = 1500;
 				
 				break;
 				
@@ -62,6 +64,7 @@ public class CMBDGattQueue {
 		    	characteristic.setValue(writeValue);
 		    	characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
 		    	gatt.writeCharacteristic(characteristic);
+//		    	next_delay = 1500;
 		    	
 				break;
 				
@@ -69,14 +72,21 @@ public class CMBDGattQueue {
 				gatt.setCharacteristicNotification(characteristic, notifyValue);
 				
 				BluetoothGattDescriptor keyDescriptor = characteristic.getDescriptor(UUID.fromString(BetwineCMDefines.CB_CHAR_UUID_KEY_DESCRIPTOR));
-				keyDescriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-	        	gatt.writeDescriptor(keyDescriptor);
+				if (keyDescriptor != null) {
+					keyDescriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+					gatt.writeDescriptor(keyDescriptor);
+				} else {
+					Log.d("CMBDGattQueue", "key descriptor is null");
+				}
+//				next_delay = 2000;
 				
 				break;
 			
 			default:
 				break;
 			}
+			
+			return next_delay;
 		}
 		
 	}
@@ -93,7 +103,7 @@ public class CMBDGattQueue {
 	}
 	
 	void addNotifyCommand(BluetoothGattCharacteristic characteristic, Boolean boolValue) {
-		CMBDGattCommand command = new CMBDGattCommand(CMBDGattCommandType.Read, characteristic);
+		CMBDGattCommand command = new CMBDGattCommand(CMBDGattCommandType.Notify, characteristic);
 		command.notifyValue = boolValue;
 		this.queue.add(command);
 	}
@@ -119,12 +129,14 @@ public class CMBDGattQueue {
 		}
 	}
 	
-	void executeNextQueueCommand() {
+	int executeNextQueueCommand() {
+		
+		int next_delay = 10;
 		
 		if (queue.size() > 0) {
 			this.isProcessing = true;
 			CMBDGattCommand command = queue.poll();
-			command.executeWithGatt(gatt);
+			next_delay = command.executeWithGatt(gatt);
 	
 			Log.i("CMBDGattQueue", "execute command: " + command.operation);
 		
@@ -133,6 +145,7 @@ public class CMBDGattQueue {
 			isProcessing = false;
 		}
 		
+		return next_delay;
 	}
 	
 	

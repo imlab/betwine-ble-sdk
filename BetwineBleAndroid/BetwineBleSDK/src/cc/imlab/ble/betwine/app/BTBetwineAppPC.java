@@ -157,6 +157,8 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 		Log.d(TAG, "enable Hp");
 		if (gatt != null && hpChar != null) {
 			setCharacteristicNotification(hpChar, true);
+		} else {
+			Log.d(TAG, "gatt or char not ready");
 		}
 	}
 	
@@ -165,6 +167,8 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 		if (gatt != null && stateChar != null && stepChar != null) {
 			setCharacteristicNotification(stateChar, true);
 			setCharacteristicNotification(stepChar, true);
+		} else {
+			Log.d(TAG, "gatt or char not ready");
 		}
 	}
 	
@@ -172,6 +176,8 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 		Log.d(TAG, "enable time");
 		if (gatt != null && timeChar != null) {
 			setCharacteristicNotification(timeChar, true);
+		} else {
+			Log.d(TAG, "gatt or char not ready");
 		}
 	}
 	
@@ -179,6 +185,8 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 		Log.d(TAG, "enable device info");
 		if (gatt != null && deviceInfoChar != null) {
 			setCharacteristicNotification(deviceInfoChar, true);
+		} else {
+			Log.d(TAG, "gatt or char not ready");
 		}
 	}
 	
@@ -186,6 +194,8 @@ public class BTBetwineAppPC extends CMBDPeripheralConnector {
 		Log.d(TAG, "enable vib test");
 		if (gatt != null && vibTestChar != null) {
 			setCharacteristicNotification(vibTestChar, true);
+		} else {
+			Log.d(TAG, "gatt or char not ready");
 		}
 	}
 	

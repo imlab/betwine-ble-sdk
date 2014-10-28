@@ -70,7 +70,7 @@ public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 				// proceed Async Queue
 				proceedAsyncQueue();
 			}
-		}, 2000);
+		}, 200);
 	}
 	
 	public void onConnected() {
@@ -234,12 +234,16 @@ public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 	}
 	
 	/* BTBetwineAppPC data update methods */
-	private int stepFromBytes(byte[] bytes) {
-		int step_int = bytes[2];
-		step_int = step_int << 8;
-		step_int |= bytes[1];
-		step_int = step_int << 8;
-		step_int |= bytes[0];
+	private int stepFromBytes(byte[] b) {
+		int step_int = b[0] & 0xFF |
+				(b[1] & 0xFF) << 8 |
+				(b[2] & 0xFF) << 16;
+		
+		int step_int1 = b[2] & 0xFF;
+		step_int1 = step_int1 << 8;
+		step_int1 |= b[1] & 0xFF;
+		step_int1 = step_int1 << 8;
+		step_int1 |= b[0] & 0xFF;
 		
 		return step_int;
 	}

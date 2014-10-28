@@ -10,7 +10,7 @@ public class BetwineCMDefines {
     public final static long SCAN_PERIOD = 6000; // 6 seconds
     
     /* General Gatt Profiles */
-    public final static String CB_CHAR_UUID_KEY_DESCRIPTOR = "00002901-0000-1000-8000-00805f9b34fb";
+    public final static String CB_CHAR_UUID_KEY_DESCRIPTOR = "00002902-0000-1000-8000-00805f9b34fb";
     
 
     /* Peripheral Connector State */

@@ -115,8 +115,9 @@
             android:id="@+id/imageAvatar"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:contentDescription="Avatar Animations"
-            android:src="@drawable/ic_launcher" />
+            android:background="@drawable/breath_animation"
+            android:contentDescription="Avatar Animations" />
+
     </FrameLayout>
 
     <TextView
@@ -259,5 +260,13 @@
         android:layout_alignLeft="@+id/btnSetTime"
         android:layout_below="@+id/btnSetTime"
         android:text="Test Button" />
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignRight="@+id/frameLayout1"
+        android:layout_below="@+id/btnTest"
+        android:text="Exit" />
 
 </RelativeLayout>

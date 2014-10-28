@@ -52,7 +52,7 @@ public class CMBDGattQueue {
 		}
 		
 		int executeWithGatt(BluetoothGatt gatt) {
-			int next_delay = 10;
+			int next_delay = 100;
 			switch(operation) {
 			case Read:
 				gatt.readCharacteristic(characteristic);

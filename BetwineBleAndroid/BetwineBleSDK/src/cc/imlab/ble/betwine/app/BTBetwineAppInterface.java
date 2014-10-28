@@ -239,12 +239,6 @@ public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 				(b[1] & 0xFF) << 8 |
 				(b[2] & 0xFF) << 16;
 		
-		int step_int1 = b[2] & 0xFF;
-		step_int1 = step_int1 << 8;
-		step_int1 |= b[1] & 0xFF;
-		step_int1 = step_int1 << 8;
-		step_int1 |= b[0] & 0xFF;
-		
 		return step_int;
 	}
 	
@@ -334,11 +328,11 @@ public class BTBetwineAppInterface extends CMBDPeripheralInterface {
 		
 		final int CMBD_HISTORY_STEPS_DAYS = 7; 
 		for (int i = 0; i < CMBD_HISTORY_STEPS_DAYS; i++) {
-			stepHistory[i] = oldSteps[3*i + 2];
-			stepHistory[i] = stepHistory[i] << 8;
-			stepHistory[i] |= oldSteps[3*i + 1];
-			stepHistory[i] = stepHistory[i] << 8;
-			stepHistory[i] |= oldSteps[3*i];
+			int step_int = oldSteps[3*i] & 0xFF |
+					(oldSteps[3*i + 1] & 0xFF) << 8 |
+					(oldSteps[3*i + 2] & 0xFF) << 16;
+			
+			stepHistory[i] = step_int;
 			
 			if (stepHistory[i] == 0xFFFFFF) {
 				stepHistory[i] = 0;

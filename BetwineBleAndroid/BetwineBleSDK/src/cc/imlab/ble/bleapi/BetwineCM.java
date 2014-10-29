@@ -7,17 +7,14 @@ import java.util.Map;
 import java.util.UUID;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothAdapter.LeScanCallback;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
-import android.view.WindowManager;
 import cc.imlab.ble.betwine.app.BTBetwineAppPC;
 import cc.imlab.ble.bleapi.BetwineCMDefines.DeviceType;
 import cc.imlab.ble.bleapi.framework.CMBDPeripheralConnector;
@@ -70,6 +67,9 @@ public class BetwineCM {
         	
         	if (isScanTypeCorrect(device)) {
         		discoverList.put(device.getAddress(), device);
+        	}
+        	else {
+        		Log.i(TAG, "ignore device: " + device);
         	}
         }
         
@@ -202,7 +202,6 @@ public class BetwineCM {
     	else {
     		Log.d(TAG, "scan without UUIDs");
     		mScanning = mBluetoothAdapter.startLeScan(onLeScanCallback);
-    		scanDeviceType = DeviceType.None;
     	}
     	
     	if (!mScanning) {
@@ -219,48 +218,21 @@ public class BetwineCM {
         
         // show scanning result
         List<String> choiceList = new ArrayList<String>();
+        List<String> addressList = new ArrayList<String>();
         final BluetoothDevice[] deviceList = discoverList.values().toArray(new BluetoothDevice[]{});
         for (BluetoothDevice device: deviceList) {
         	Log.i(TAG, "found device: (" + device.getAddress() + ") " + device.getName()
         			+ ", type:" + device.getType() + ", bond: " + device.getBondState());
         	
         	choiceList.add(device.getName() + "("+ device.getAddress().replace(":", "") + ")");
+        	addressList.add(device.getAddress());
         }
+        // let user choose the device to connect
+        Intent intent = new Intent(BetwineCMDefines.ACTION_CM_STOP_SCAN);
+        intent.putExtra(BetwineCMDefines.ACTION_CM_EXTRA_DEVICE_NAME_LIST, choiceList.toArray(new String[]{}));
+        intent.putExtra(BetwineCMDefines.ACTION_CM_EXTRA_DEVICE_ADDR_LIST, addressList.toArray(new String[]{}));
+        broadcastUpdate(intent);
         
-        broadcastUpdate(BetwineCMDefines.ACTION_CM_STOP_SCAN);
-        
-        String[] choiceNames = choiceList.toArray(new String[]{});
-        if (choiceNames.length > 1) {
-        	// found multiple devices, need to prompt user
-        	AlertDialog dialog = new AlertDialog.Builder(cmService)
-        			.setTitle("Select Devices")
-        			.setIcon(android.R.drawable.ic_dialog_info)
-        			.setSingleChoiceItems(choiceNames, 
-        				0, 
-        				new DialogInterface.OnClickListener() {
-						
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							dialog.dismiss();
-							
-							BluetoothDevice device = deviceList[which];
-							connectDeviceWithAddress(device.getAddress()); // connect
-						}
-					}).create();
-
-			dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-			dialog.show();
-			
-			Log.d(TAG, "show device choice window");
-        }
-        else if (choiceNames.length > 0) {
-        	// found single device, auto connect
-            connectDeviceWithAddress(deviceList[0].getAddress());
-        }
-        else {
-        	// No device found
-        	Log.i(TAG, "No device found.");
-        }
     }
     
     public void connectDeviceWithAddress(String address) {

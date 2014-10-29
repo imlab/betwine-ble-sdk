@@ -30,4 +30,9 @@ public class BetwineCMDefines {
     		"cc.imlab.ble.bleapi.ACTION_CM_CONNECTED";
     public final static String ACTION_CM_DISCONNECTED = 
     		"cc.imlab.ble.bleapi.ACTION_CM_DISCONENCTED";
+    
+    public final static String ACTION_CM_EXTRA_DEVICE_NAME_LIST = 
+    		"choiceList";
+    public final static String ACTION_CM_EXTRA_DEVICE_ADDR_LIST = 
+    		"addressList";
 }

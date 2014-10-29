@@ -1,18 +1,23 @@
 package cc.imlab.betwineble;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -40,7 +45,7 @@ public class BetwineDemoActivity extends Activity {
 	private TextView textEnergy;
 	private TextView textSteps;
 	private TextView textBattery;
-	private TextView textDeviceId;
+	private TextView textMsg;
 	private CheckBox checkBoxLed1;
 	private CheckBox checkBoxLed2;
 	private CheckBox checkBoxLed3;
@@ -88,7 +93,7 @@ public class BetwineDemoActivity extends Activity {
 		textEnergy = (TextView) findViewById(R.id.textEnergy);
 		textSteps = (TextView) findViewById(R.id.textSteps);
 		textBattery = (TextView) findViewById(R.id.textBattery);
-		textDeviceId = (TextView) findViewById(R.id.textDeviceId);
+		textMsg = (TextView) findViewById(R.id.textMsg);
 		btnPoke = (Button) findViewById(R.id.btnPoke);
 		btnConnect = (Button) findViewById(R.id.btnConnect);
 		btnSetTime = (Button) findViewById(R.id.btnSetTime);
@@ -108,7 +113,6 @@ public class BetwineDemoActivity extends Activity {
 		
 		// hide currently not used widgets
 		btnTest.setVisibility(View.INVISIBLE); 
-		textDeviceId.setVisibility(View.INVISIBLE);
 		
 		btnPoke.setOnClickListener(btnPokeClickListener);
 		btnConnect.setOnClickListener(btnConnectClickListener);
@@ -123,6 +127,8 @@ public class BetwineDemoActivity extends Activity {
 		// start BetwineCM service
 		cmServiceIntent = new Intent(this, BetwineCMService.class);
 		startService(cmServiceIntent);
+		
+		
 	}
 
 	@Override
@@ -270,6 +276,9 @@ public class BetwineDemoActivity extends Activity {
 				
 			}
 			else if (BetwineCMDefines.ACTION_CM_STOP_SCAN.equals(action)) {
+				checkDiscoverList(intent);
+				
+				
 				btnConnect.setText("Scan");
 				btnConnect.setEnabled(true);
 			}
@@ -304,6 +313,62 @@ public class BetwineDemoActivity extends Activity {
 					btnTest.setEnabled(true);
 				}
 			}
+		}
+		
+		public Boolean isAlertPermissionAvailable() {
+			// this function is not working correctly?
+			int res = getPackageManager().checkPermission(
+					android.Manifest.permission.SYSTEM_ALERT_WINDOW, getPackageName());
+			return (res == PackageManager.PERMISSION_GRANTED);
+		}
+		
+		public void checkDiscoverList(Intent intent) {
+	        final String[] choiceNames = intent.getStringArrayExtra(BetwineCMDefines.ACTION_CM_EXTRA_DEVICE_NAME_LIST);
+	        final String[] addressList = intent.getStringArrayExtra(BetwineCMDefines.ACTION_CM_EXTRA_DEVICE_ADDR_LIST); 
+	        if (choiceNames.length > 1) {
+	        	// check alert dialog permission
+	        	if (!this.isAlertPermissionAvailable()) {
+	        		// let user know the permission issue
+	        		textMsg.setText("While multiple devices are found, you need to turn on the Alert Permission for this app, " +
+							"otherwise it choose the first found device to connect.");
+	        		
+	        		cmBinder.connectDeviceWithAddress(addressList[0]);
+	                
+	                Log.w(TAG, "alert permission is not granted. choose the first device");
+	        	}
+	        	else {
+		        	// found multiple devices, need to prompt user
+	        		ContextThemeWrapper ctw = new ContextThemeWrapper(BetwineDemoActivity.this, 
+	        				android.R.style.Theme_Light);
+		        	AlertDialog dialog = new AlertDialog.Builder(ctw)
+		        			.setTitle("Select Devices")
+		        			.setIcon(android.R.drawable.ic_dialog_info)
+		        			.setSingleChoiceItems(choiceNames, 
+		        				0, 
+		        				new DialogInterface.OnClickListener() {
+								
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									dialog.dismiss();
+									
+									cmBinder.connectDeviceWithAddress(addressList[which]); // connect
+								}
+							}).create();
+		
+					dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+					dialog.show();
+					
+					Log.d(TAG, "show device choice window");
+	        	}
+	        }
+	        else if (choiceNames.length > 0) {
+	        	// found single device, auto connect
+	            cmBinder.connectDeviceWithAddress(addressList[0]);
+	        }
+	        else {
+	        	// No device found
+	        	Log.i(TAG, "No device found.");
+	        }
 		}
 		
 	};

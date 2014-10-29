@@ -21,6 +21,10 @@ public class BetwineCMBinder extends Binder {
 		cm.stopScan();
 	}
 	
+	public void connectDeviceWithAddress(String address) {
+		cm.connectDeviceWithAddress(address);
+	}
+	
 	public boolean hasPeripheralConnectedWithType(BetwineCMDefines.DeviceType type) {
 		return cm.hasPeripheralConnectedWithType(type);
 	}

@@ -185,23 +185,12 @@
         android:text="Set Time" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textDeviceId"
-        android:layout_alignBottom="@+id/textDeviceId"
         android:layout_alignLeft="@+id/btnSetTime"
-        android:text="Device ID: "
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/textDeviceId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignRight="@+id/btnPoke"
         android:layout_below="@+id/relativeLayout1"
-        android:layout_toRightOf="@+id/textView13"
-        android:text="XXXX-XXXX-XXXX-XXXX"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <RelativeLayout

@@ -32,24 +32,23 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 	
 	private Handler handler = new Handler();
 	
-	private Runnable updateGattQueueRunnable = new Runnable() {
-		
-		@Override
-		public void run() {
-			// TODO Auto-generated method stub
-			updateGattQueue();
-		}
-	};
+//	private Runnable updateGattQueueRunnable = new Runnable() {
+//		
+//		@Override
+//		public void run() {
+//			updateGattQueue();
+//		}
+//	};
 	
-	private void updateGattQueue()
-	{
-		int delayTime = gattQueue.executeNextQueueCommand();
-		handler.postDelayed(updateGattQueueRunnable, delayTime);
-		
-		if (delayTime != 10) {
-			Log.i("CMBDPeripheralConnector", "updateGattQueue: " + delayTime);
-		}
-	}
+//	private void updateGattQueue()
+//	{
+//		int delayTime = gattQueue.executeNextQueueCommand();
+//		handler.postDelayed(updateGattQueueRunnable, delayTime);
+//		
+//		if (delayTime != 10) {
+//			Log.i("CMBDPeripheralConnector", "updateGattQueue: " + delayTime);
+//		}
+//	}
 
 	public CMBDPeripheralConnector(BluetoothDevice device, BetwineCM cm) {
 		super();
@@ -58,7 +57,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 		this.cm = cm;
 		this.gattQueue = new CMBDGattQueue();
 		
-		updateGattQueue();
+//		updateGattQueue();
 	}
 	
 	public void connect() {
@@ -174,7 +173,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
         	onDataUpdate(characteristic);
         }
         
-        //gattQueue.executeNextQueueCommand();
+        gattQueue.executeNextQueueCommand();
     }
 
     @Override
@@ -184,8 +183,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
     	// data update
     	onDataUpdate(characteristic);
     	
-
-        //gattQueue.executeNextQueueCommand(); // 
+//        gattQueue.executeNextQueueCommand(); // don't execute command on notified, since the data read is not triggered from Gatt Server
     }
     
     @Override
@@ -195,7 +193,25 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
     	Log.i(tag(), "--write characteristic: " + characteristic.getUuid() + " status: " + status);
     	
 
-        //gattQueue.executeNextQueueCommand();
+        gattQueue.executeNextQueueCommand();
+    }
+    
+    @Override
+    public void onDescriptorRead(BluetoothGatt gatt,
+    		BluetoothGattDescriptor descriptor, int status) {
+    	super.onDescriptorRead(gatt, descriptor, status);
+    	Log.i(tag(), "--read descriptor: " + descriptor.getUuid() + " status: " + status);
+    	
+    }
+    
+    @Override
+    public void onDescriptorWrite(BluetoothGatt gatt,
+    		BluetoothGattDescriptor descriptor, int status) {
+    	super.onDescriptorWrite(gatt, descriptor, status);
+
+    	Log.i(tag(), "--write descriptor: " + descriptor.getUuid() + " status: " + status);
+    	
+    	gattQueue.executeNextQueueCommand();
     }
     
     /**
@@ -210,7 +226,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 //            gatt.readCharacteristic(characteristic);
         	
         	gattQueue.addReadCommand(characteristic);
-        	//gattQueue.checkProceedQueue();
+        	gattQueue.checkProceedQueue();
         }
         else {
         	Log.w(tag(), "trying to read characteristic from null gatt(char: " + characteristic +")");
@@ -224,7 +240,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
 //	    	gatt.writeCharacteristic(characteristic);
     		
     		gattQueue.addWriteCommand(characteristic, bytes);
-    		//gattQueue.checkProceedQueue();
+    		gattQueue.checkProceedQueue();
     	}
     	else {
         	Log.w(tag(), "trying to write characteristic from null gatt(char: " + characteristic + ")");
@@ -244,7 +260,7 @@ public abstract class CMBDPeripheralConnector extends BluetoothGattCallback {
             return;
         }
         gattQueue.addNotifyCommand(characteristic, enabled);
-        //gattQueue.checkProceedQueue();
+        gattQueue.checkProceedQueue();
         
 //        gatt.setCharacteristicNotification(characteristic, enabled);
         

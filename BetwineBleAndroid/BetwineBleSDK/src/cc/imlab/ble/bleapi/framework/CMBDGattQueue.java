@@ -51,12 +51,10 @@ public class CMBDGattQueue {
 			this.operation = operation;
 		}
 		
-		int executeWithGatt(BluetoothGatt gatt) {
-			int next_delay = 100;
+		Boolean executeWithGatt(BluetoothGatt gatt) {
 			switch(operation) {
 			case Read:
 				gatt.readCharacteristic(characteristic);
-//				next_delay = 1500;
 				
 				break;
 				
@@ -64,7 +62,6 @@ public class CMBDGattQueue {
 		    	characteristic.setValue(writeValue);
 		    	characteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
 		    	gatt.writeCharacteristic(characteristic);
-//		    	next_delay = 1500;
 		    	
 				break;
 				
@@ -77,16 +74,18 @@ public class CMBDGattQueue {
 					gatt.writeDescriptor(keyDescriptor);
 				} else {
 					Log.d("CMBDGattQueue", "key descriptor is null");
+					
+					// since it doesn't trigger anything, push back to the queue?
+					return false;
 				}
-//				next_delay = 2000;
 				
 				break;
 			
 			default:
 				break;
 			}
-			
-			return next_delay;
+
+			return true;
 		}
 		
 	}
@@ -129,23 +128,25 @@ public class CMBDGattQueue {
 		}
 	}
 	
-	int executeNextQueueCommand() {
-		
-		int next_delay = 10;
+	synchronized void executeNextQueueCommand() {
 		
 		if (queue.size() > 0) {
 			this.isProcessing = true;
 			CMBDGattCommand command = queue.poll();
-			next_delay = command.executeWithGatt(gatt);
-	
 			Log.i("CMBDGattQueue", "execute command: " + command.operation);
-		
+			
+			if (!command.executeWithGatt(gatt)) {
+				// if the command is not triggered successful due to some reason
+				// proceed to next command
+				
+				this.isProcessing = false;
+				executeNextQueueCommand();
+			}
 		}
 		else {
 			isProcessing = false;
 		}
 		
-		return next_delay;
 	}
 	
 	

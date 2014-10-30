@@ -37,7 +37,7 @@ typedef enum {
 #define CMBD_CONN_EVT_START_SCAN @"CMBD.Connection.StartScan"
 #define CMBD_CONN_EVT_STOP_SCAN @"CMBD.Connection.StopScan"
 
-#define CMBD_CONN_EVT_CONNCETED @"CMBD.Connectino.Connected"
+#define CMBD_CONN_EVT_CONNECTED @"CMBD.Connectino.Connected"
 #define CMBD_CONN_EVT_DISCONNECTED @"CMBD.Connection.Disconnected"
 #define CMBD_CONN_EVT_CANCEL @"CMBD.Connection.Cancel"
 

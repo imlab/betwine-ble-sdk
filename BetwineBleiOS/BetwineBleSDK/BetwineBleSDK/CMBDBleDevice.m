@@ -51,7 +51,7 @@
     [self.interface activateWithConnector:self.connector];
     self.interface.bleDevice = self;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CMBD_CONN_EVT_CONNCETED object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CMBD_CONN_EVT_CONNECTED object:self];
 }
 
 -(void)onDisconnected

@@ -66,7 +66,7 @@
     // connection handling
     [nc addObserver:self selector:@selector(onDeviceConnectionUpdate:) name:CMBD_CONN_EVT_START_SCAN object:nil];
     [nc addObserver:self selector:@selector(onDeviceConnectionUpdate:) name:CMBD_CONN_EVT_STOP_SCAN object:nil];
-    [nc addObserver:self selector:@selector(onDeviceConnectionUpdate:) name:CMBD_CONN_EVT_CONNCETED object:nil];
+    [nc addObserver:self selector:@selector(onDeviceConnectionUpdate:) name:CMBD_CONN_EVT_CONNECTED object:nil];
     [nc addObserver:self selector:@selector(onBetwineAppReady) name:CMBD_EVT_DEVICE_APP_READY object:nil];
     [nc addObserver:self selector:@selector(onBetwineDisconnected) name:CMBD_CONN_EVT_DISCONNECTED object:nil];
 
@@ -202,7 +202,7 @@
         [self.scanBtn setTitle:@"Scanning...(wait 5s)" forState:UIControlStateNormal];
         self.scanBtnStatus = 1; // scanning or connecting
     }
-    else if ([notification.name isEqualToString:CMBD_CONN_EVT_CONNCETED]) {
+    else if ([notification.name isEqualToString:CMBD_CONN_EVT_CONNECTED]) {
         self.scanBtn.enabled = NO;
         [self.scanBtn setTitle:@"Connecting..." forState:UIControlStateNormal];
         self.scanBtnStatus = 1; // scanning or connecting

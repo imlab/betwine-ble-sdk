@@ -95,9 +95,18 @@ static CMBDBleDeviceManager *_bleDeviceMgr = nil;
     NSLog(@"[CMBDBleDeviceManager] scan BLE device with type: %d broadcast:%@", deviceType, uuid);
     self.isScanning = YES;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CMBD_CONN_EVT_START_SCAN object:self userInfo:nil];
     
-    return [self.cm scanPeripherals:5 withServices:@[[CBUUID UUIDWithString:uuid]]] == 0;
+    NSInteger result = [self.cm scanPeripherals:5 withServices:@[[CBUUID UUIDWithString:uuid]]] == 0;
+    
+    if (result == 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CMBD_CONN_EVT_START_SCAN object:self userInfo:nil];
+        
+        return true;
+    }
+    else {
+        self.isScanning = NO;
+        return false;
+    }
 }
 
 /* query methods */

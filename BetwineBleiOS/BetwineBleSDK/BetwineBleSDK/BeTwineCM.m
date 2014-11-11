@@ -168,7 +168,7 @@
             
             [peripherals addObject:peripheral];
             
-            if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+            if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1) {
                 // iOS 6, use index to get the advertisement data
                 [broadcastDatas setObject:advertisementData forKey:[[NSNumber numberWithInteger:broadcastDatas.count] stringValue]];
             }

@@ -1,0 +1,85 @@
+//
+//  Created by imlab_DEV on 14-8-25.
+//  Copyright (c) 2014 imlab.cc. All rights reserved.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+#import "BTWAvatarView.h"
+
+static NSArray *_animationNames = nil;
+static NSMutableArray *_animations = nil;
+
+@interface BTWAvatarView ()
+@end
+
+@implementation BTWAvatarView
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
++ (void)loadAnimations {
+    if (_animationNames == nil) {
+        _animationNames = @[@"breath", @"walking", @"running", @"tired"];
+        _animations = [NSMutableArray arrayWithCapacity:_animationNames.count];
+    }
+    
+    for (NSString *name in _animationNames) {
+        
+        NSArray *frames = [[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:[NSString stringWithFormat:@"avatar/%@", name]];
+
+//        NSLog(@"[BTWAvatarView] loading avatar files: %@", frames);
+        
+        NSMutableArray *images = [NSMutableArray arrayWithCapacity:frames.count];
+        
+        for (NSString *path in frames) {
+            
+            UIImage *image = [UIImage imageWithContentsOfFile:path];
+            [images addObject:image];
+        }
+        
+        [_animations addObject:images];
+    }
+    
+}
+
+-(void)setAnimationToStatus:(BTWAvatarStatus)status {
+    
+    NSArray *anim = [_animations objectAtIndex:(NSUInteger)status];
+    
+    [self stopAnimating];
+    self.image = [anim objectAtIndex:0];
+
+    self.animationImages = anim;
+    self.animationDuration = 2;
+    self.animationRepeatCount = 0;
+    
+    [self startAnimating];
+}
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect
+{
+    // Drawing code
+}
+*/
+
+@end

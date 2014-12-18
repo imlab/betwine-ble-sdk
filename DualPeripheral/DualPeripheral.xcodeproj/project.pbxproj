@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E2824691A427F03004EFAC1 /* BTPowerGripAppInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2824661A427F03004EFAC1 /* BTPowerGripAppInterface.m */; };
+		7E28246A1A427F03004EFAC1 /* BTPowerGripAppPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2824681A427F03004EFAC1 /* BTPowerGripAppPC.m */; };
+		7E28246D1A427F19004EFAC1 /* BTCommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E28246C1A427F19004EFAC1 /* BTCommonUtil.m */; };
+		7E5568A21A020AD900260178 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5568A11A020AD900260178 /* main.m */; };
+		7E5568A51A020AD900260178 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5568A41A020AD900260178 /* AppDelegate.m */; };
+		7E5568A81A020AD900260178 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5568A71A020AD900260178 /* ViewController.m */; };
+		7E5568AB1A020AD900260178 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5568A91A020AD900260178 /* Main.storyboard */; };
+		7E5568AD1A020AD900260178 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5568AC1A020AD900260178 /* Images.xcassets */; };
+		7E5568B01A020AD900260178 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E5568AE1A020AD900260178 /* LaunchScreen.xib */; };
+		7E5568BC1A020AD900260178 /* DualPeripheralTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5568BB1A020AD900260178 /* DualPeripheralTests.m */; };
+		7E5568D01A020D0000260178 /* BTWAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5568CF1A020D0000260178 /* BTWAvatarView.m */; };
+		7E5568D21A020D2C00260178 /* avatar in Resources */ = {isa = PBXBuildFile; fileRef = 7E5568D11A020D2C00260178 /* avatar */; };
+		7E5568FC1A020F7D00260178 /* BTBetwineAppInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5568F91A020F7D00260178 /* BTBetwineAppInterface.m */; };
+		7E5568FD1A020F7D00260178 /* BTBetwineAppPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5568FB1A020F7D00260178 /* BTBetwineAppPC.m */; };
+		7E5569051A020F9C00260178 /* CBPeripheral+Compatible.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5569001A020F9C00260178 /* CBPeripheral+Compatible.m */; };
+		7E5569061A020F9C00260178 /* CBUUID+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5569021A020F9C00260178 /* CBUUID+String.m */; };
+		7E55690B1A020FB400260178 /* BeTwineCM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E55690A1A020FB400260178 /* BeTwineCM.m */; };
+		7E5569161A020FC200260178 /* CMBDBleDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E55690E1A020FC200260178 /* CMBDBleDevice.m */; };
+		7E5569171A020FC200260178 /* CMBDBleDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5569101A020FC200260178 /* CMBDBleDeviceManager.m */; };
+		7E5569181A020FC200260178 /* CMBDPeripheralConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5569131A020FC200260178 /* CMBDPeripheralConnector.m */; };
+		7E5569191A020FC200260178 /* CMBDPeripheralInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5569151A020FC200260178 /* CMBDPeripheralInterface.m */; };
+		7E55691D1A0226A900260178 /* DeviceChooserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E55691B1A0226A900260178 /* DeviceChooserTableViewController.m */; };
+		7E5569201A02319C00260178 /* DeviceChooserTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E55691F1A02319C00260178 /* DeviceChooserTableViewController.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E5568B61A020AD900260178 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E5568941A020AD900260178 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E55689B1A020AD900260178;
+			remoteInfo = DualPeripheral;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E2824641A427F03004EFAC1 /* BTPowerGripAppDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTPowerGripAppDefines.h; path = bluetooth/BTPowerGripAppDefines.h; sourceTree = "<group>"; };
+		7E2824651A427F03004EFAC1 /* BTPowerGripAppInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTPowerGripAppInterface.h; path = bluetooth/BTPowerGripAppInterface.h; sourceTree = "<group>"; };
+		7E2824661A427F03004EFAC1 /* BTPowerGripAppInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTPowerGripAppInterface.m; path = bluetooth/BTPowerGripAppInterface.m; sourceTree = "<group>"; };
+		7E2824671A427F03004EFAC1 /* BTPowerGripAppPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTPowerGripAppPC.h; path = bluetooth/BTPowerGripAppPC.h; sourceTree = "<group>"; };
+		7E2824681A427F03004EFAC1 /* BTPowerGripAppPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTPowerGripAppPC.m; path = bluetooth/BTPowerGripAppPC.m; sourceTree = "<group>"; };
+		7E28246B1A427F19004EFAC1 /* BTCommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTCommonUtil.h; path = bluetooth/BTCommonUtil.h; sourceTree = "<group>"; };
+		7E28246C1A427F19004EFAC1 /* BTCommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTCommonUtil.m; path = bluetooth/BTCommonUtil.m; sourceTree = "<group>"; };
+		7E55689C1A020AD900260178 /* DualPeripheral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DualPeripheral.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E5568A01A020AD900260178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E5568A11A020AD900260178 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7E5568A31A020AD900260178 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7E5568A41A020AD900260178 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7E5568A61A020AD900260178 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7E5568A71A020AD900260178 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7E5568AA1A020AD900260178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7E5568AC1A020AD900260178 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7E5568AF1A020AD900260178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7E5568B51A020AD900260178 /* DualPeripheralTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DualPeripheralTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E5568BA1A020AD900260178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E5568BB1A020AD900260178 /* DualPeripheralTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DualPeripheralTests.m; sourceTree = "<group>"; };
+		7E5568CE1A020D0000260178 /* BTWAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTWAvatarView.h; sourceTree = "<group>"; };
+		7E5568CF1A020D0000260178 /* BTWAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTWAvatarView.m; sourceTree = "<group>"; };
+		7E5568D11A020D2C00260178 /* avatar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = avatar; sourceTree = "<group>"; };
+		7E5568F71A020F7D00260178 /* BTAppDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTAppDefines.h; path = bluetooth/BTAppDefines.h; sourceTree = "<group>"; };
+		7E5568F81A020F7D00260178 /* BTBetwineAppInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTBetwineAppInterface.h; path = bluetooth/BTBetwineAppInterface.h; sourceTree = "<group>"; };
+		7E5568F91A020F7D00260178 /* BTBetwineAppInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTBetwineAppInterface.m; path = bluetooth/BTBetwineAppInterface.m; sourceTree = "<group>"; };
+		7E5568FA1A020F7D00260178 /* BTBetwineAppPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTBetwineAppPC.h; path = bluetooth/BTBetwineAppPC.h; sourceTree = "<group>"; };
+		7E5568FB1A020F7D00260178 /* BTBetwineAppPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTBetwineAppPC.m; path = bluetooth/BTBetwineAppPC.m; sourceTree = "<group>"; };
+		7E5568FF1A020F9C00260178 /* CBPeripheral+Compatible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CBPeripheral+Compatible.h"; path = "bluetooth/CBPeripheral+Compatible.h"; sourceTree = "<group>"; };
+		7E5569001A020F9C00260178 /* CBPeripheral+Compatible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CBPeripheral+Compatible.m"; path = "bluetooth/CBPeripheral+Compatible.m"; sourceTree = "<group>"; };
+		7E5569011A020F9C00260178 /* CBUUID+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CBUUID+String.h"; path = "bluetooth/CBUUID+String.h"; sourceTree = "<group>"; };
+		7E5569021A020F9C00260178 /* CBUUID+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CBUUID+String.m"; path = "bluetooth/CBUUID+String.m"; sourceTree = "<group>"; };
+		7E5569091A020FB400260178 /* BeTwineCM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeTwineCM.h; path = bluetooth/BeTwineCM.h; sourceTree = "<group>"; };
+		7E55690A1A020FB400260178 /* BeTwineCM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeTwineCM.m; path = bluetooth/BeTwineCM.m; sourceTree = "<group>"; };
+		7E55690C1A020FC200260178 /* BetwineBleSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BetwineBleSDK.h; path = bluetooth/BetwineBleSDK.h; sourceTree = "<group>"; };
+		7E55690D1A020FC200260178 /* CMBDBleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMBDBleDevice.h; path = bluetooth/CMBDBleDevice.h; sourceTree = "<group>"; };
+		7E55690E1A020FC200260178 /* CMBDBleDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMBDBleDevice.m; path = bluetooth/CMBDBleDevice.m; sourceTree = "<group>"; };
+		7E55690F1A020FC200260178 /* CMBDBleDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMBDBleDeviceManager.h; path = bluetooth/CMBDBleDeviceManager.h; sourceTree = "<group>"; };
+		7E5569101A020FC200260178 /* CMBDBleDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMBDBleDeviceManager.m; path = bluetooth/CMBDBleDeviceManager.m; sourceTree = "<group>"; };
+		7E5569111A020FC200260178 /* CMBDFrameworkDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMBDFrameworkDefines.h; path = bluetooth/CMBDFrameworkDefines.h; sourceTree = "<group>"; };
+		7E5569121A020FC200260178 /* CMBDPeripheralConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMBDPeripheralConnector.h; path = bluetooth/CMBDPeripheralConnector.h; sourceTree = "<group>"; };
+		7E5569131A020FC200260178 /* CMBDPeripheralConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMBDPeripheralConnector.m; path = bluetooth/CMBDPeripheralConnector.m; sourceTree = "<group>"; };
+		7E5569141A020FC200260178 /* CMBDPeripheralInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMBDPeripheralInterface.h; path = bluetooth/CMBDPeripheralInterface.h; sourceTree = "<group>"; };
+		7E5569151A020FC200260178 /* CMBDPeripheralInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMBDPeripheralInterface.m; path = bluetooth/CMBDPeripheralInterface.m; sourceTree = "<group>"; };
+		7E55691A1A0226A900260178 /* DeviceChooserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceChooserTableViewController.h; sourceTree = "<group>"; };
+		7E55691B1A0226A900260178 /* DeviceChooserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceChooserTableViewController.m; sourceTree = "<group>"; };
+		7E55691F1A02319C00260178 /* DeviceChooserTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceChooserTableViewController.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E5568991A020AD900260178 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E5568B21A020AD900260178 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E28245C1A427B0A004EFAC1 /* PowerGrip */ = {
+			isa = PBXGroup;
+			children = (
+				7E2824641A427F03004EFAC1 /* BTPowerGripAppDefines.h */,
+				7E2824651A427F03004EFAC1 /* BTPowerGripAppInterface.h */,
+				7E2824661A427F03004EFAC1 /* BTPowerGripAppInterface.m */,
+				7E2824671A427F03004EFAC1 /* BTPowerGripAppPC.h */,
+				7E2824681A427F03004EFAC1 /* BTPowerGripAppPC.m */,
+			);
+			name = PowerGrip;
+			sourceTree = "<group>";
+		};
+		7E5568931A020AD900260178 = {
+			isa = PBXGroup;
+			children = (
+				7E5568D31A020F1800260178 /* Bluetooth */,
+				7E5568C51A020C5A00260178 /* Avatar */,
+				7E55689E1A020AD900260178 /* DualPeripheral */,
+				7E5568B81A020AD900260178 /* DualPeripheralTests */,
+				7E55689D1A020AD900260178 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7E55689D1A020AD900260178 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E55689C1A020AD900260178 /* DualPeripheral.app */,
+				7E5568B51A020AD900260178 /* DualPeripheralTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E55689E1A020AD900260178 /* DualPeripheral */ = {
+			isa = PBXGroup;
+			children = (
+				7E5568CE1A020D0000260178 /* BTWAvatarView.h */,
+				7E5568CF1A020D0000260178 /* BTWAvatarView.m */,
+				7E5568A31A020AD900260178 /* AppDelegate.h */,
+				7E5568A41A020AD900260178 /* AppDelegate.m */,
+				7E5568A61A020AD900260178 /* ViewController.h */,
+				7E5568A71A020AD900260178 /* ViewController.m */,
+				7E5568A91A020AD900260178 /* Main.storyboard */,
+				7E5568AC1A020AD900260178 /* Images.xcassets */,
+				7E5568AE1A020AD900260178 /* LaunchScreen.xib */,
+				7E55689F1A020AD900260178 /* Supporting Files */,
+				7E55691A1A0226A900260178 /* DeviceChooserTableViewController.h */,
+				7E55691B1A0226A900260178 /* DeviceChooserTableViewController.m */,
+				7E55691F1A02319C00260178 /* DeviceChooserTableViewController.storyboard */,
+			);
+			path = DualPeripheral;
+			sourceTree = "<group>";
+		};
+		7E55689F1A020AD900260178 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E5568A01A020AD900260178 /* Info.plist */,
+				7E5568A11A020AD900260178 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7E5568B81A020AD900260178 /* DualPeripheralTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E5568BB1A020AD900260178 /* DualPeripheralTests.m */,
+				7E5568B91A020AD900260178 /* Supporting Files */,
+			);
+			path = DualPeripheralTests;
+			sourceTree = "<group>";
+		};
+		7E5568B91A020AD900260178 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E5568BA1A020AD900260178 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7E5568C51A020C5A00260178 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				7E5568D11A020D2C00260178 /* avatar */,
+			);
+			name = Avatar;
+			sourceTree = "<group>";
+		};
+		7E5568D31A020F1800260178 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				7E55690C1A020FC200260178 /* BetwineBleSDK.h */,
+				7E5568FE1A020F8200260178 /* Common */,
+				7E5569081A020FA200260178 /* BLEApi */,
+				7E5568D41A020F1F00260178 /* BetwineApp */,
+				7E28245C1A427B0A004EFAC1 /* PowerGrip */,
+				7E5569111A020FC200260178 /* CMBDFrameworkDefines.h */,
+				7E55690D1A020FC200260178 /* CMBDBleDevice.h */,
+				7E55690E1A020FC200260178 /* CMBDBleDevice.m */,
+				7E55690F1A020FC200260178 /* CMBDBleDeviceManager.h */,
+				7E5569101A020FC200260178 /* CMBDBleDeviceManager.m */,
+				7E5569121A020FC200260178 /* CMBDPeripheralConnector.h */,
+				7E5569131A020FC200260178 /* CMBDPeripheralConnector.m */,
+				7E5569141A020FC200260178 /* CMBDPeripheralInterface.h */,
+				7E5569151A020FC200260178 /* CMBDPeripheralInterface.m */,
+			);
+			name = Bluetooth;
+			sourceTree = "<group>";
+		};
+		7E5568D41A020F1F00260178 /* BetwineApp */ = {
+			isa = PBXGroup;
+			children = (
+				7E5568F71A020F7D00260178 /* BTAppDefines.h */,
+				7E5568F81A020F7D00260178 /* BTBetwineAppInterface.h */,
+				7E5568F91A020F7D00260178 /* BTBetwineAppInterface.m */,
+				7E5568FA1A020F7D00260178 /* BTBetwineAppPC.h */,
+				7E5568FB1A020F7D00260178 /* BTBetwineAppPC.m */,
+			);
+			name = BetwineApp;
+			sourceTree = "<group>";
+		};
+		7E5568FE1A020F8200260178 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7E28246B1A427F19004EFAC1 /* BTCommonUtil.h */,
+				7E28246C1A427F19004EFAC1 /* BTCommonUtil.m */,
+				7E5568FF1A020F9C00260178 /* CBPeripheral+Compatible.h */,
+				7E5569001A020F9C00260178 /* CBPeripheral+Compatible.m */,
+				7E5569011A020F9C00260178 /* CBUUID+String.h */,
+				7E5569021A020F9C00260178 /* CBUUID+String.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		7E5569081A020FA200260178 /* BLEApi */ = {
+			isa = PBXGroup;
+			children = (
+				7E5569091A020FB400260178 /* BeTwineCM.h */,
+				7E55690A1A020FB400260178 /* BeTwineCM.m */,
+			);
+			name = BLEApi;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E55689B1A020AD900260178 /* DualPeripheral */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E5568BF1A020AD900260178 /* Build configuration list for PBXNativeTarget "DualPeripheral" */;
+			buildPhases = (
+				7E5568981A020AD900260178 /* Sources */,
+				7E5568991A020AD900260178 /* Frameworks */,
+				7E55689A1A020AD900260178 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DualPeripheral;
+			productName = DualPeripheral;
+			productReference = 7E55689C1A020AD900260178 /* DualPeripheral.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7E5568B41A020AD900260178 /* DualPeripheralTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E5568C21A020AD900260178 /* Build configuration list for PBXNativeTarget "DualPeripheralTests" */;
+			buildPhases = (
+				7E5568B11A020AD900260178 /* Sources */,
+				7E5568B21A020AD900260178 /* Frameworks */,
+				7E5568B31A020AD900260178 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E5568B71A020AD900260178 /* PBXTargetDependency */,
+			);
+			name = DualPeripheralTests;
+			productName = DualPeripheralTests;
+			productReference = 7E5568B51A020AD900260178 /* DualPeripheralTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E5568941A020AD900260178 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = imlab.cc;
+				TargetAttributes = {
+					7E55689B1A020AD900260178 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					7E5568B41A020AD900260178 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 7E55689B1A020AD900260178;
+					};
+				};
+			};
+			buildConfigurationList = 7E5568971A020AD900260178 /* Build configuration list for PBXProject "DualPeripheral" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E5568931A020AD900260178;
+			productRefGroup = 7E55689D1A020AD900260178 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E55689B1A020AD900260178 /* DualPeripheral */,
+				7E5568B41A020AD900260178 /* DualPeripheralTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E55689A1A020AD900260178 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E5568AB1A020AD900260178 /* Main.storyboard in Resources */,
+				7E5568D21A020D2C00260178 /* avatar in Resources */,
+				7E5568B01A020AD900260178 /* LaunchScreen.xib in Resources */,
+				7E5569201A02319C00260178 /* DeviceChooserTableViewController.storyboard in Resources */,
+				7E5568AD1A020AD900260178 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E5568B31A020AD900260178 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E5568981A020AD900260178 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E5569061A020F9C00260178 /* CBUUID+String.m in Sources */,
+				7E28246D1A427F19004EFAC1 /* BTCommonUtil.m in Sources */,
+				7E5569171A020FC200260178 /* CMBDBleDeviceManager.m in Sources */,
+				7E5568A81A020AD900260178 /* ViewController.m in Sources */,
+				7E5569191A020FC200260178 /* CMBDPeripheralInterface.m in Sources */,
+				7E5569051A020F9C00260178 /* CBPeripheral+Compatible.m in Sources */,
+				7E5568D01A020D0000260178 /* BTWAvatarView.m in Sources */,
+				7E5569181A020FC200260178 /* CMBDPeripheralConnector.m in Sources */,
+				7E55691D1A0226A900260178 /* DeviceChooserTableViewController.m in Sources */,
+				7E55690B1A020FB400260178 /* BeTwineCM.m in Sources */,
+				7E5568FC1A020F7D00260178 /* BTBetwineAppInterface.m in Sources */,
+				7E2824691A427F03004EFAC1 /* BTPowerGripAppInterface.m in Sources */,
+				7E5569161A020FC200260178 /* CMBDBleDevice.m in Sources */,
+				7E5568A51A020AD900260178 /* AppDelegate.m in Sources */,
+				7E5568A21A020AD900260178 /* main.m in Sources */,
+				7E5568FD1A020F7D00260178 /* BTBetwineAppPC.m in Sources */,
+				7E28246A1A427F03004EFAC1 /* BTPowerGripAppPC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E5568B11A020AD900260178 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E5568BC1A020AD900260178 /* DualPeripheralTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E5568B71A020AD900260178 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E55689B1A020AD900260178 /* DualPeripheral */;
+			targetProxy = 7E5568B61A020AD900260178 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7E5568A91A020AD900260178 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E5568AA1A020AD900260178 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7E5568AE1A020AD900260178 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E5568AF1A020AD900260178 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7E5568BD1A020AD900260178 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7E5568BE1A020AD900260178 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E5568C01A020AD900260178 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DualPeripheral/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7E5568C11A020AD900260178 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DualPeripheral/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7E5568C31A020AD900260178 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DualPeripheralTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DualPeripheral.app/DualPeripheral";
+			};
+			name = Debug;
+		};
+		7E5568C41A020AD900260178 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DualPeripheralTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DualPeripheral.app/DualPeripheral";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E5568971A020AD900260178 /* Build configuration list for PBXProject "DualPeripheral" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E5568BD1A020AD900260178 /* Debug */,
+				7E5568BE1A020AD900260178 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E5568BF1A020AD900260178 /* Build configuration list for PBXNativeTarget "DualPeripheral" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E5568C01A020AD900260178 /* Debug */,
+				7E5568C11A020AD900260178 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E5568C21A020AD900260178 /* Build configuration list for PBXNativeTarget "DualPeripheralTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E5568C31A020AD900260178 /* Debug */,
+				7E5568C41A020AD900260178 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E5568941A020AD900260178 /* Project object */;
+}

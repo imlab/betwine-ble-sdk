@@ -30,16 +30,24 @@
     
     self.connection1Label.text = @"Not connected";
     self.connection2Label.text = @"Not connected";
-    
-    [self setPlayer1State:@0];
-    [self setPlayer1Energy:@0];
-    [self setPlayer1Steps:@0];
-    
-    [self setPlayer2State:@0];
-    [self setPlayer2Energy:@0];
-    [self setPlayer2Steps:@0];
+    [self resetPlayer:1];
+    [self resetPlayer:2];
     
     [self initBleFunctions];
+}
+
+-(void)resetPlayer:(int)playerNum {
+    
+    if (playerNum == 1) {
+        [self setPlayer1State:@0];
+        [self setPlayer1Energy:@0];
+        [self setPlayer1Steps:@0];
+    }
+    else if (playerNum == 2) {
+        [self setPlayer2State:@0];
+        [self setPlayer2Energy:@0];
+        [self setPlayer2Steps:@0];
+    }
 }
 
 -(void)dealloc
@@ -152,9 +160,9 @@
     
     [nc addObserver:self selector:@selector(receiveGripJSValue:) name:CB_PG_EVT_RECEIVE_JS object:nil];
     
-    self.checkTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(checkConnection) userInfo:nil repeats:true];
-    
-   [self checkConnection];
+//    self.checkTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(checkConnection) userInfo:nil repeats:true];
+//    
+//   [self checkConnection];
 }
 
 -(void)deinitBleFunctions {
@@ -184,8 +192,28 @@
     [self.bluetoothActivity stopAnimating];
     
     NSDictionary *dict = notification.userInfo;
-    NSArray *deviceNames = [dict objectForKey:CMBD_NTF_DICT_KEY_CHOICENAMES];
-    NSArray *deviceIds = [dict objectForKey:CMBD_NTF_DICT_KEY_DEVICE_ID_LIST];
+    NSArray *resultNames = [dict objectForKey:CMBD_NTF_DICT_KEY_CHOICENAMES];
+    NSArray *resultIds = [dict objectForKey:CMBD_NTF_DICT_KEY_DEVICE_ID_LIST];
+    
+    // filter already connected
+    NSMutableArray *deviceNames = [NSMutableArray arrayWithCapacity:resultNames.count];
+    NSMutableArray *deviceIds = [NSMutableArray arrayWithCapacity:resultIds.count];
+    
+    for(int i = 0; i < resultIds.count; i++) {
+        NSString *deviceName = [resultNames objectAtIndex:i];
+        NSString *deviceId = [resultIds objectAtIndex:i];
+        if (self.device1 && [deviceId isEqualToString:self.device1]) {
+            continue;
+        }
+        if (self.device2 && [deviceId isEqualToString:self.device2]) {
+            continue;
+        }
+        
+        [deviceNames addObject:deviceName];
+        [deviceIds addObject:deviceId];
+    }
+    
+    
     NSLog(@"discover devices: %@", deviceIds);
     
     if (deviceIds.count == 1) {
@@ -207,12 +235,12 @@
         if (self.device1 == nil) {
             self.device1 = deviceId;
             self.connection1Label.text = @"Connecting...";
-            NSLog(@"Device 1: %@", deviceId);
+            NSLog(@"Device 1 connecting: %@", deviceId);
         }
         else if (self.device2 == nil) {
             self.device2 = deviceId;
             self.connection2Label.text = @"Connecting...";
-            NSLog(@"Device 2: %@", deviceId);
+            NSLog(@"Device 2 connecting: %@", deviceId);
         }
         else {
             NSLog(@"[ViewController] warning: more than 2 devices connected!");
@@ -231,10 +259,12 @@
     if (self.device1 && [self.device1 isEqualToString:deviceId]) {
         self.device1 = nil;
         self.connection1Label.text = @"Disconnected";
+        [self resetPlayer:1];
     }
     else if (self.device2 && [self.device2 isEqualToString:deviceId]) {
         self.device2 = nil;
         self.connection2Label.text = @"Disconnected";
+        [self resetPlayer:2];
     }
     else {
         NSLog(@"[ViewController] error: unknown device disconnected!");

@@ -190,7 +190,6 @@ static CMBDBleDeviceManager *_bleDeviceMgr = nil;
 -(void)disconnectAllDevices {
     
     for(CMBDBleDevice *d in self.connectedDevices) {
-        d.keepConnection = NO;
         [self disconnectDevice:d];
     }
     
